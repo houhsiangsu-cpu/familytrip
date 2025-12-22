@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蘇家 2026 東京行 - 動態行程表</title>
+    
+    <style>
+        :root {
+            --primary-color: #336699;
+            --secondary-color: #6c757d;
+            --background-color: #f4f7f6;
+            --card-bg-color: #ffffff;
+            --highlight-color: #ffc107; /* 黃色用於點擊提示 */
+        }
+
+        body {
+            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px;
+            color: #343a40;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        .day-container {
+            background-color: var(--card-bg-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .day-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 20px;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        /* 可點擊的活動卡片樣式 */
+        .activity-card-header {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e9ecef;
+            cursor: pointer; /* 顯示為可點擊 */
+            transition: background-color 0.3s;
+        }
+
+        .activity-card-header:hover {
+            background-color: #e2f0ff; /* 滑鼠移上時變色 */
+        }
+        
+        /* 展開指示圖標 */
+        .toggle-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+            margin-left: auto; /* 靠右對齊 */
+        }
+
+        .activity-card-header.active .toggle-icon {
+            transform: rotate(90deg); /* 展開時旋轉圖標 */
+        }
+
+        /* 隱藏的細節面板 (Accordion) */
+        .activity-detail-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out, padding 0.3s;
+            background-color: #fcfcfc;
+            border-left: 5px solid var(--highlight-color);
+        }
+
+        .activity-card-header.active + .activity-detail-panel {
+            max-height: 500px; /* 設置一個足夠大的值 */
+            padding: 20px;
+        }
+
+        /* 圖片背景區 */
+        .detail-photo {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px black;
+        }
+
+        /* 花費輸入欄位 */
+        .cost-input-group {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .cost-input-group input {
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            margin-left: 10px;
+            width: 120px;
+            text-align: right;
+        }
+        
+        /* 其他樣式 (保持不變) */
+        .time-slot {
+            font-weight: bold;
+            flex-basis: 120px;
+            flex-shrink: 0;
+            color: var(--primary-color);
+            padding-right: 15px;
+            text-align: right;
+            border-right: 1px dashed #ced4da;
+        }
+
+        .activity-summary {
+            flex-grow: 1;
+            padding-left: 20px;
+        }
+
+        .notes-text {
+            color: #6c757d;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        @media (max-width: 600px) {
+            .activity-card-header {
+                flex-wrap: wrap;
+            }
+            .time-slot {
+                border-right: none;
+                border-bottom: 1px dashed #ced4da;
+                text-align: left;
+                padding-right: 0;
+                padding-bottom: 5px;
+                flex-basis: 100%;
+            }
+            .activity-summary {
+                padding-left: 0;
+                padding-top: 5px;
+            }
+            .toggle-icon {
+                margin-left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗓️ 蘇家 2026 東京行 動態行程表 </h1>
+        
+        <div id="itinerary-output"></div>
+    </div>
+
+    <script>
+        // 注意：這裡將兩個 CSV 檔案的資料合併，Activity 作為 Key [cite: 1, 2]。
+        const tripData = [
+            {
+                "Day": "Day 1",
+                "Date": "2026/01/21",
+                "Activities": [
+                    {
+                        "Start time": "05:30",
+                        "End time": "06:00",
+                        "Activity": "Pickup from Home to TSA",
+                        "Owner": "amandasj.yang",
+                        "Notes": "Confirmed",
+                        "Details": { "Pictures url": "", "QR-Cord": "無", "Cost": 0 }
+                    },
+                    {
+                        "Start time": "07:15",
+                        "End time": "11:10",
+                        "Activity": "TSA to HND",
+                        "Owner": "amandasj.yang",
+                        "Notes": "Confirmed (Taipei Songshan Airport (TSA))",
+                        "Details": { "Pictures url": "", "QR-Cord": "登機證 QR code 連結", "Cost": 0 }
+                    },
+                    {
+                        "Start time": "12:00",
+                        "End time": "TBD",
+                        "Activity": "Option#1: Monorail",
+                        "Owner": "蘇侯翔",
+                        "Notes": "Draft (Haneda Airport (HND))",
+                        "Details": {
+                            "Pictures url": "https://bobbyfun.tw/wp-content/uploads/pixnet/8b8e9dfd832a4af2de8cbabbc4574e8e.jpg",
+                            "QR-Cord": "Monorail Ticket Link or Text",
+                            "Cost": 600 // 日幣
+                        }
+                    },
+                    {
+                        "Start time": "12:00",
+                        "End time": "TBD",
+                        "Activity": "Option#2: Keikyu Line",
+                        "Owner": "蘇侯翔",
+                        "Notes": "Draft",
+                        "Details": {
+                            "Pictures url": "https://bobbyfun.tw/wp-content/uploads/pixnet/181906e813461a5131aa82dece8c8051.jpg",
+                            "QR-Cord": "Keikyu Line Ticket Link or Text",
+                            "Cost": 500 
+                        }
+                    },
+                    {
+                        "Start time": "14:30",
+                        "End time": "TBD",
+                        "Activity": "JR上野",
+                        "Owner": "amandasj.yang",
+                        "Notes": "Planning",
+                        "Details": { "Pictures url": "", "QR-Cord": "無", "Cost": 0 }
+                    },
+                    {
+                        "Start time": "16:00",
+                        "End time": "TBD",
+                        "Activity": "JR越後湯澤",
+                        "Owner": "",
+                        "Notes": "",
+                        "Details": { "Pictures url": "", "QR-Cord": "無", "Cost": 0 }
+                    },
+                    {
+                        "Start time": "08:00",
+                        "End time": "TBD",
+                        "Activity": "Check-in Hotel",
+                        "Owner": "amandasj.yang",
+                        "Notes": "越後湯澤駅",
+                        "Details": { "Pictures url": "", "QR-Cord": "飯店訂單 QR code", "Cost": 0 }
+                    }
+                ]
+            },
+            {
+                "Day": "Day 2",
+                "Date": "2026/01/22",
+                "Activities": [
+                    {
+                        "Start time": "09:00",
+                        "End time": "TBD",
+                        "Activity": "Scean 1",
+                        "Owner": "",
+                        "Notes": "",
+                        "Details": { "Pictures url": "", "QR-Cord": "無", "Cost": 0 }
+                    },
+                    {
+                        "Start time": "11:00",
+                        "End time": "TBD",
+                        "Activity": "Lunch",
+                        "Owner": "",
+                        "Notes": "Planning",
+                        "Details": { "Pictures url": "", "QR-Cord": "無", "Cost": 3000 }
+                    }
+                ]
+            }
+        ];
+
+        // ----------------------------------------------------
+        
+        /** 處理時間格式 */
+        const formatTime = (time) => time ? time.substring(0, 5) : 'TBD';
+        
+        /** 處理花費輸入 - 僅在前端記錄 */
+        function recordCost(activityId, inputElement) {
+            const cost = parseFloat(inputElement.value);
+            console.log(`活動 ID: ${activityId}，已記錄花費: ${cost} JPY`);
+            
+            // *** [TODO: 後端連動 - 實作 Google Apps Script] ***
+            // 這邊是預留給未來發送資料到 Google Sheet 的函式：
+            // sendToGoogleSheet(activityId, cost);
+            
+            // 由於目前無後端，此處僅在 Console 顯示記錄，並將輸入欄位暫時變綠
+            inputElement.style.backgroundColor = '#d4edda'; 
+            setTimeout(() => {
+                inputElement.style.backgroundColor = 'white';
+            }, 1000);
+        }
+        
+        /** 渲染行程卡片 */
+        function renderActivity(activity, index) {
+            const activityId = `activity-${index}`;
+            const startTime = formatTime(activity['Start time']);
+            const endTime = formatTime(activity['End time']);
+            const timeSlot = startTime + (endTime && endTime !== 'TBD' && endTime !== startTime ? ' - ' + endTime : '');
+            
+            // 詳細資訊內容
+            const details = activity.Details;
+            
+            let photoStyle = '';
+            let photoContent = '點擊展開查看詳細資訊';
+
+            if (details && details['Pictures url']) {
+                photoStyle = `background-image: url('${details['Pictures url']}');`;
+                photoContent = '';
+            } else {
+                photoContent = '目前無照片，請查看下方資訊';
+            }
+
+            return `
+                <div class="activity-card-header" onclick="toggleDetailPanel('${activityId}', this)">
+                    <div class="time-slot">${timeSlot}</div>
+                    <div class="activity-summary">
+                        <p><strong>${activity.Activity}</strong></p>
+                        <p class="notes-text">負責人: ${activity.Owner.split('@')[0] || '未定'} | 狀態: ${activity.Notes || '無'}</p>
+                    </div>
+                    <span class="toggle-icon">▶</span>
+                </div>
+                
+                <div class="activity-detail-panel" id="${activityId}">
+                    <div class="detail-photo" style="${photoStyle}">${photoContent}</div>
+
+                    <p>🎫 <strong>票務資訊/連結:</strong> ${details['QR-Cord'] || '無資料'}</p>
+                    
+                    <div class="cost-input-group">
+                        <span>💰 <strong>即時花費 (JPY):</strong></span>
+                        <input 
+                            type="number" 
+                            id="cost-${activityId}"
+                            value="${details['Cost'] || 0}"
+                            placeholder="輸入金額"
+                            onchange="recordCost('${activityId}', this)"
+                        >
+                    </div>
+                    
+                    <p style="margin-top: 15px; border-top: 1px dashed #eee; padding-top: 10px;">
+                        <span class="notes-text">這是詳細資訊頁面，可放入地圖、導航按鈕等。</span>
+                    </p>
+                </div>
+            `;
+        }
+
+        /** 展開/收起面板的函式 */
+        window.toggleDetailPanel = function(panelId, headerElement) {
+            const panel = document.getElementById(panelId);
+            
+            // 檢查 panel 是否已展開
+            const isExpanded = headerElement.classList.contains('active');
+            
+            if (isExpanded) {
+                // 收起
+                panel.style.maxHeight = '0';
+                headerElement.classList.remove('active');
+            } else {
+                // 展開: 確保只有一個面板展開 (可選)
+                document.querySelectorAll('.activity-card-header.active').forEach(h => {
+                    h.classList.remove('active');
+                    h.nextElementSibling.style.maxHeight = '0';
+                });
+                
+                // 展開當前面板
+                panel.style.maxHeight = panel.scrollHeight + 'px'; // 根據實際內容高度展開
+                headerElement.classList.add('active');
+            }
+        }
+        
+        // 頁面載入時執行渲染
+        document.addEventListener('DOMContentLoaded', () => {
+            const outputDiv = document.getElementById('itinerary-output');
+            let activityIndex = 0;
+            
+            tripData.forEach(day => {
+                const dayContainer = document.createElement('div');
+                dayContainer.className = 'day-container';
+                dayContainer.innerHTML = `<div class="day-header">${day.Day}：${day.Date}</div>`;
+
+                day.Activities.forEach(activity => {
+                    const activityWrapper = document.createElement('div');
+                    activityWrapper.className = 'activity-wrapper';
+                    activityWrapper.innerHTML = renderActivity(activity, activityIndex++);
+                    dayContainer.appendChild(activityWrapper);
+                });
+
+                outputDiv.appendChild(dayContainer);
+            });
+        });
+    </script>
+</body>
+</html>
