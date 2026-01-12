@@ -43,6 +43,73 @@
             border-color: #3b82f6;
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
         }
+
+        .btn-link {
+            @apply flex items-center p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-sm font-bold text-slate-700 hover:bg-slate-100 transition;
+        }
+
+        .food-tag {
+            @apply text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-white/50 mb-2 inline-block;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Detail/Summary Animation */
+        details > summary {
+            list-style: none;
+            cursor: pointer;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary ~ * {
+            animation: sweep .3s ease-in-out;
+        }
+        @keyframes sweep {
+            0%    {opacity: 0; transform: translateY(-10px)}
+            100%  {opacity: 1; transform: translateY(0)}
+        }
     </style>
 </head>
 <body class="text-slate-800">
@@ -77,15 +144,63 @@
                 <h2 class="text-2xl font-bold mb-6 flex items-center text-slate-800">
                     <i class="fas fa-bolt text-yellow-500 mr-3"></i>快速清單 (Project Cheat Sheet)
                 </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <!-- 航班資訊 (已更新為連結) -->
                     <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100">
-                        <h3 class="text-xs font-bold text-slate-400 mb-3 uppercase tracking-widest">✈️ 航班資訊</h3>
-                        <p class="text-base font-bold text-slate-700">去程 BR192 07:15 (TPE)</p>
-                        <p class="text-base font-bold text-slate-700 mt-1">回程 BR191 12:15 (JPT)</p>
+                        <h3 class="text-xs font-bold text-slate-400 mb-3 uppercase tracking-widest">✈️ 航班資訊 (點擊查看)</h3>
+                        
+                        <!-- 去程連結 -->
+                        <button onclick="openModal('outbound')" class="w-full text-left group mb-2">
+                            <p class="text-base font-bold text-blue-600 group-hover:text-blue-800 underline decoration-dashed underline-offset-4 transition">
+                                去程 BR192 07:15 (TPE)
+                            </p>
+                        </button>
+
+                        <!-- 回程連結 -->
+                        <button onclick="openModal('inbound')" class="w-full text-left group">
+                            <p class="text-base font-bold text-blue-600 group-hover:text-blue-800 underline decoration-dashed underline-offset-4 transition">
+                                回程 BR191 12:15 (JPT)
+                            </p>
+                        </button>
                     </div>
+
+                    <!-- JR 票券 -->
                     <div class="p-5 bg-orange-50 rounded-2xl border border-orange-100">
                         <h3 class="text-xs font-bold text-orange-400 mb-3 uppercase tracking-widest">🎫 JR 重要預約</h3>
                         <p class="text-base font-bold text-orange-800">Pickup Code: 33492329600521248</p>
+                        <div class="mt-2">
+                            <a href="https://drive.google.com/file/d/10tinvT-TAIIvS_5avJURp9RsKzcq6bra/view?usp=drive_link" target="_blank" class="bg-orange-600 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-sm inline-block hover:bg-orange-700 transition">
+                                <i class="fas fa-qrcode mr-1"></i>查看 JR Ticket QR 附件
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 住宿清單 -->
+                <div class="p-5 bg-blue-50 rounded-2xl border border-blue-100">
+                    <h3 class="text-xs font-bold text-blue-400 mb-3 uppercase tracking-widest">🏨 住宿預約與確認單</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="bg-white p-3 rounded-xl border border-blue-200 shadow-sm">
+                            <p class="text-[10px] text-slate-400 font-bold mb-1">1/21 - 1/23</p>
+                            <p class="text-sm font-bold text-slate-700 mb-2">湯けむりの宿 雪の花</p>
+                            <a href="https://drive.google.com/file/d/1zEpqAFefD3f4VzVO-mV64BsNEbMV1kW0/view?usp=drive_link" target="_blank" class="text-xs text-blue-600 font-bold flex items-center hover:underline">
+                                <i class="fas fa-file-pdf mr-1 text-red-500"></i> 開啟確認單
+                            </a>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-blue-200 shadow-sm">
+                            <p class="text-[10px] text-slate-400 font-bold mb-1">1/23 - 1/26</p>
+                            <p class="text-sm font-bold text-slate-700 mb-2">hotel MONday Premium</p>
+                            <a href="https://drive.google.com/file/d/1FBHWYpem9k-wK3Vqx-u4QPw_qctShAcx/view?usp=drive_link" target="_blank" class="text-xs text-blue-600 font-bold flex items-center hover:underline">
+                                <i class="fas fa-file-pdf mr-1 text-red-500"></i> 開啟確認單
+                            </a>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-blue-200 shadow-sm">
+                            <p class="text-[10px] text-slate-400 font-bold mb-1">1/26 - 1/28</p>
+                            <p class="text-sm font-bold text-slate-700 mb-2">Hotel Dream Gate Maihama</p>
+                            <a href="https://drive.google.com/file/d/1pzVtKCvvv6BkjRAIAdmUXLeiZHXTytss/view?usp=drive_link" target="_blank" class="text-xs text-blue-600 font-bold flex items-center hover:underline">
+                                <i class="fas fa-file-pdf mr-1 text-red-500"></i> 開啟確認單
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -98,15 +213,115 @@
                 <h2 class="text-3xl font-bold text-slate-800">1/21 (三) 台北 - 越後湯澤</h2>
             </div>
             <div class="relative pl-12 border-l-2 border-slate-200 ml-6 space-y-8">
+                
                 <div class="relative">
                     <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-blue-500 rounded-full z-10"></div>
                     <h4 class="text-lg font-bold text-slate-800">🏠 05:30 出發前往機場 (TSA)</h4>
                     <p class="text-slate-500 text-sm">搭乘 BR192 07:15 起飛</p>
                 </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-slate-300 rounded-full z-10"></div>
+                    <h4 class="text-lg font-bold text-slate-800">🇯🇵 11:00 入境與保險</h4>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <a href="http://www.vjw.digital.go.jp" target="_blank" class="text-blue-600 text-sm font-bold border border-blue-200 px-3 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-100">📱 Visit Japan Web</a>
+                        <a href="https://t-o.tokiomarine-nichido.co.jp/IB01/dfw/IB01/ZS3101_WC_PUB/startWC.html?__ZS_gid=COMMON&__ZS_aid=RENAR001&cd=13190093T9021000000000000UNYUHUKUSENKAI" target="_blank" class="text-red-600 text-sm font-bold border border-red-200 px-3 py-1.5 rounded-lg bg-red-50 hover:bg-red-100">🛡️ TOKIO 日本保險</a>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-slate-400 rounded-full z-10"></div>
+                    <h4 class="text-lg font-bold text-slate-800">🚟 12:00 羽田 - 東京車站交通</h4>
+                    <p class="text-slate-500 text-sm mb-2">搭乘東京單軌電車 (Monorail Line)</p>
+                    <a href="https://www.tokyo-monorail.co.jp/tc/" target="_blank" class="btn-link inline-flex">
+                        <i class="fas fa-train mr-2 text-blue-600"></i> 東京單軌電車官方網站
+                    </a>
+                </div>
+
+                <!-- 修正後的 12:30 行李與自由活動區塊 -->
+                <div class="relative">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-slate-300 rounded-full z-10"></div>
+                    
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm card-hover">
+                        <div class="text-sm font-bold text-slate-400 mb-1">12:30 - 14:40</div>
+                        
+                        <details class="group">
+                            <summary class="flex justify-between items-center cursor-pointer">
+                                <div>
+                                    <h4 class="text-lg font-bold text-slate-800 flex items-center">
+                                        🧳 行李與自由活動
+                                    </h4>
+                                    <p class="text-slate-500 text-sm mt-1">
+                                        東京車站寄物、午餐 (點擊展開大型行李寄放建議)
+                                    </p>
+                                </div>
+                                <span class="text-blue-500 transition-transform group-open:rotate-180">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </summary>
+                            
+                            <div class="mt-4 pt-4 border-t border-slate-100 text-sm text-slate-600 space-y-3 bg-slate-50 rounded-lg p-3">
+                                <p class="font-bold text-blue-800 mb-2"><i class="fas fa-info-circle mr-1"></i> 東京車站人工寄放推薦 (大型行李)</p>
+                                
+                                <div class="flex flex-col gap-2">
+                                    <div class="bg-white p-2 rounded border border-slate-200">
+                                        <span class="font-bold text-slate-800">1. 丸之內北口 JR東日本服務中心</span>
+                                        <p class="text-xs mt-1">1樓 丸之內北口 改札，出站後左手邊，位置最明顯，服務至 20:30。</p>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border border-slate-200">
+                                        <span class="font-bold text-slate-800">2. 靠近八重洲北口 日本橋口 佐川急便</span>
+                                        <p class="text-xs mt-1">提供空手觀光寄物，適合從八重洲側進出。</p>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border border-slate-200">
+                                        <span class="font-bold text-slate-800">3. 八重洲南口 Rail Go Service</span>
+                                        <p class="text-xs mt-1">需搭電梯至地下，位置較隱密但通常有位。</p>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border border-slate-200">
+                                        <span class="font-bold text-slate-800">4. B1F Gransta Cloak</span>
+                                        <p class="text-xs mt-1">B1F 改札內 (站內) 八重洲地下中央口 的人工寄物處。</p>
+                                    </div>
+                                </div>
+                                <a href="https://www.tokyostationcity.com/tc/information/" target="_blank" class="block text-right text-xs text-blue-500 font-bold mt-2 hover:underline">
+                                    查看東京車站構內圖 <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
                 <div class="relative">
                     <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-orange-500 rounded-full z-10"></div>
                     <h4 class="text-lg font-bold text-slate-800">🚅 14:40 - 15:56 新幹線：東京 → 越後湯澤</h4>
-                    <p class="text-slate-700 text-sm font-bold">JR Toki 325 (座位：8號車)</p>
+                    <p class="text-slate-700 text-sm font-bold">JR Toki 325 (座位：8號車 3D/3E/4D/4E)</p>
+                    <a href="https://maps.app.goo.gl/gJU3FyNycb72fMTUA" target="_blank" class="text-blue-500 text-sm font-bold flex items-center mt-2 hover:text-blue-700">
+                        <i class="fas fa-map-marker-alt mr-2"></i>越後湯澤站地圖
+                    </a>
+                    <a href="https://www.jreast.co.jp/zh-CHT/e/stations/e285.html" target="_blank" class="text-blue-500 text-sm font-bold flex items-center mt-1 hover:text-blue-700">
+                        <i class="fas fa-info-circle mr-2"></i>越後湯澤站構內圖
+                    </a>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-blue-600 rounded-full z-10"></div>
+                    <h4 class="text-lg font-bold text-slate-800">🏨 16:00 Check-in 雪之花</h4>
+                    <div class="mt-3 space-y-3">
+                        <a href="https://maps.app.goo.gl/QMwa98Dxfu9zrYS19" target="_blank" class="text-blue-600 text-sm font-bold flex items-center p-3 bg-slate-50 rounded-xl border border-slate-100 hover:bg-slate-100">
+                            <i class="fas fa-map-marker-alt mr-2"></i>📍 雪之花飯店地圖
+                        </a>
+                        <!-- 優點整理區塊 -->
+                        <div class="p-3 bg-blue-50 rounded-lg border border-blue-100 text-sm text-slate-600">
+                            <p class="font-bold text-blue-700 mb-1">✨ 推薦優點：</p>
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>距離越後湯澤站僅 3 分鐘，交通超方便。</li>
+                                <li>全館塌塌米地板，充滿日式風情。</li>
+                                <li>提供免費私人湯屋 (Private Onsen) 與夜鳴拉麵。</li>
+                            </ul>
+                        </div>
+                        <div class="pt-3 border-t border-slate-100">
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">🍽️ 晚餐推薦</p>
+                            <a href="https://www.yasuyoshi.net/menu.html" target="_blank" class="text-blue-600 text-base font-bold underline hover:text-blue-800">保よし (Yasuyoshi) 餐廳</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -118,10 +333,78 @@
                 <h2 class="text-3xl font-bold text-slate-800">1/22 (四) 石打丸山滑雪</h2>
             </div>
             <div class="relative pl-12 border-l-2 border-slate-200 ml-6 space-y-8">
+                <!-- 租借資訊 -->
                 <div class="relative">
                     <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-blue-400 rounded-full z-10"></div>
-                    <h4 class="text-lg font-bold text-slate-800">🎿 09:00 - 14:00 滑雪教學課程</h4>
-                    <p class="text-sm text-slate-500">於石打丸山滑雪場與教練集合。</p>
+                    <h4 class="text-lg font-bold text-slate-800 mb-3">🎿 雪具租借商店</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <a href="https://e-rental.info/shop/kamikiya.html" target="_blank" class="btn-link">
+                            <i class="fas fa-ski-lifting mr-2 text-blue-500"></i> e-RENTAL (神木屋)
+                        </a>
+                        <a href="https://rentaltakano.wixsite.com/ishiuchi" target="_blank" class="btn-link">
+                            <i class="fas fa-ski-lifting mr-2 text-blue-500"></i> RENTAL TAKANO
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 教學資訊 -->
+                <div class="relative">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-slate-400 rounded-full z-10"></div>
+                    <h4 class="text-lg font-bold text-slate-800">🎓 09:00 - 14:00 滑雪教學</h4>
+                    <p class="text-sm text-slate-500 mb-2">於石打丸山滑雪場與教練集合。</p>
+                    
+                    <!-- 優點整理區塊 -->
+                    <div class="p-3 bg-blue-50 rounded-lg border border-blue-100 text-sm text-slate-600">
+                        <p class="font-bold text-blue-700 mb-1">✨ 雪場優點：</p>
+                        <ul class="list-disc pl-4 space-y-1">
+                            <li>擁有最新型 Sunrise Express 纜車，舒適度高。</li>
+                            <li>雪道寬敞多樣，適合家庭與初學者。</li>
+                            <li>The Veranda 觀景台視野極佳，可俯瞰魚沼平原。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 觀景台 -->
+                <div class="relative">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-amber-400 rounded-full z-10"></div>
+                    <h4 class="text-lg font-bold text-slate-800">🚠 15:00 觀景與雪地遊玩</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+                        <a href="https://ishiuchi.or.jp/zh-TW/tips/snowterrace/" target="_blank" class="btn-link bg-amber-50 border-amber-100 text-amber-800 hover:bg-amber-100">
+                            <i class="fas fa-mountain mr-2"></i> The Veranda 觀景台
+                        </a>
+                        <a href="https://ishiuchi.or.jp/zh-TW/winter/ski/park/" target="_blank" class="btn-link bg-indigo-50 border-indigo-100 text-indigo-800 hover:bg-indigo-100">
+                            <i class="fas fa-snowboarding mr-2"></i> Snow Park
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 美食建議 -->
+                <div class="relative">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-green-500 rounded-full z-10"></div>
+                    <div class="bg-green-50 p-6 rounded-2xl border border-green-100 shadow-sm">
+                        <h4 class="text-lg font-bold text-green-800 mb-4 flex items-center">
+                            <i class="fas fa-utensils mr-2"></i>D2 美食建議
+                        </h4>
+                        <div class="space-y-4">
+                            <div>
+                                <span class="food-tag text-green-600">Lunch: 石打丸山雪場</span>
+                                <a href="https://ishiuchi.or.jp/zh-TW/winter/facilities/restaurants/" target="_blank" class="btn-link bg-white">
+                                    <i class="fas fa-external-link-alt mr-2"></i> 雪場餐廳官方列表
+                                </a>
+                            </div>
+                            <div>
+                                <span class="food-tag text-green-600">Dinner: 湯澤市區推薦</span>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <a href="https://www.google.com/maps/place/Chaya+Moritaki/data=!4m2!3m1!19sChIJBdCbiyMCHmARJUcEcTLCzdY" target="_blank" class="btn-link bg-white">
+                                        <i class="fas fa-map-marker-alt mr-2 text-red-500"></i> 森瀧 (烏龍麵)
+                                    </a>
+                                    <a href="https://www.google.com/maps/place/Kaisen+Douraku+Totoya/data=!4m2!3m1!19sChIJdT-y2yQCHmARZhBvtGjgvug" target="_blank" class="btn-link bg-white">
+                                        <i class="fas fa-map-marker-alt mr-2 text-red-500"></i> 海鮮道楽 ととや
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -133,15 +416,26 @@
                 <h2 class="text-3xl font-bold text-slate-800">1/23 (五) 越後湯澤 - 東京</h2>
             </div>
             <div class="relative pl-12 border-l-2 border-slate-200 ml-6 space-y-8">
+                <!-- 行程點: 新幹線 -->
                 <div class="relative">
                     <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-orange-500 rounded-full z-10"></div>
                     <h4 class="text-lg font-bold text-slate-800">🚅 13:13 - 14:28 新幹線：湯澤 → 東京</h4>
-                    <p class="text-slate-700 text-sm font-bold">JR Toki 325 (座位：10號車)</p>
+                    <p class="text-slate-700 text-sm font-bold">JR Toki 325 (座位：10號車 3D/3E/4D/4E)</p>
                 </div>
+                <!-- 行程點 4: Check-in -->
                 <div class="relative">
                     <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-blue-600 rounded-full z-10"></div>
                     <h4 class="text-lg font-bold text-slate-800">🏨 16:00 東京飯店 Check-in</h4>
                     <p class="text-slate-500 text-sm">Hotel MONday Apart Premium</p>
+                </div>
+                <!-- 東京扭蛋 -->
+                <div class="relative">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-red-400 rounded-full z-10"></div>
+                    <h4 class="text-lg font-bold text-slate-800">🔴 東京扭蛋聖地巡禮</h4>
+                    <p class="text-sm text-slate-500 mb-3">抵達東京後，建議前往池袋或秋葉原據點探索。</p>
+                    <a href="https://drive.google.com/file/d/1q5P1GkstZT6iTfaCNDn-OuHOtDvSRooW/view?usp=drive_link" target="_blank" class="btn-link inline-flex">
+                        <i class="fas fa-external-link-alt mr-2 text-red-500"></i> 開啟扭蛋資訊附件
+                    </a>
                 </div>
             </div>
         </section>
@@ -150,6 +444,33 @@
     <footer class="bg-slate-900 py-12 text-center text-slate-500 text-xs tracking-widest uppercase">
         <p>KiKiLaLa Family Winter Travel 2026</p>
     </footer>
+
+    <!-- 圖片 Modal 結構 -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <script>
+        const flightImages = {
+            'outbound': 'https://drive.google.com/thumbnail?id=122R79hnSp4PhUQlTCeg44gUyEtoFty4g&sz=w1000', 
+            'inbound': 'https://drive.google.com/thumbnail?id=1XkQhYjoBQY-cEY4QeGjXXm-LIREsj8dh&sz=w1000'
+        };
+
+        function openModal(type) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImg");
+            
+            if (flightImages[type]) {
+                modalImg.src = flightImages[type];
+                modal.style.display = "flex";
+            }
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+    </script>
 
 </body>
 </html>
