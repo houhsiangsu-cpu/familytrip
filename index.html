@@ -142,7 +142,7 @@
         <section id="cheat-sheet" class="day-section mb-16">
             <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200">
                 <h2 class="text-2xl font-bold mb-6 flex items-center text-slate-800">
-                    <i class="fas fa-bolt text-yellow-500 mr-3"></i>快速清單 (Project Cheat Sheet)
+                    <i class="fas fa-bolt text-yellow-500 mr-3"></i>快速清單
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                     <!-- 航班資訊 (已更新為連結) -->
@@ -510,32 +510,154 @@
 
         <!-- Day 3 行程 -->
         <section id="day3" class="day-section mt-16 mb-20">
+            <!-- 修正：將 Icon 顏色改為藍色 -->
             <div class="flex items-center mb-8">
-                <div class="bg-red-500 text-white w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-2xl mr-4 shadow-lg shadow-red-100">D3</div>
+                <div class="bg-blue-600 text-white w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-2xl mr-4 shadow-lg shadow-blue-100">D3</div>
                 <h2 class="text-3xl font-bold text-slate-800">1/23 (五) 越後湯澤 - 東京</h2>
             </div>
             <div class="relative pl-12 border-l-2 border-slate-200 ml-6 space-y-8">
+                
+                <!-- 新增：10:00 採草莓 -->
+                <div class="relative">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-pink-400 rounded-full z-10"></div>
+                    <h4 class="text-lg font-bold text-slate-800">🍓 10:00 湯澤採草莓</h4>
+                    <div class="mt-2">
+                         <a href="https://maps.app.goo.gl/SRFCcqwjE51cMahs8" target="_blank" class="btn-link bg-white">
+                            <i class="fas fa-map-marker-alt mr-2 text-red-500"></i> 雪国アグリパーク 湯沢いちご村
+                        </a>
+                    </div>
+                </div>
+
                 <!-- 行程點: 新幹線 -->
                 <div class="relative">
                     <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-orange-500 rounded-full z-10"></div>
                     <h4 class="text-lg font-bold text-slate-800">🚅 13:13 - 14:28 新幹線：湯澤 → 東京</h4>
                     <p class="text-slate-700 text-sm font-bold">JR Toki 325 (座位：10號車 3D/3E/4D/4E)</p>
                 </div>
-                <!-- 行程點 4: Check-in -->
+
+                <!-- 行程點 4: Check-in (Updated Time) -->
                 <div class="relative">
                     <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-blue-600 rounded-full z-10"></div>
-                    <h4 class="text-lg font-bold text-slate-800">🏨 16:00 東京飯店 Check-in</h4>
+                    <h4 class="text-lg font-bold text-slate-800">🏨 15:30 東京飯店 Check-in</h4>
                     <p class="text-slate-500 text-sm">Hotel MONday Apart Premium</p>
                 </div>
-                <!-- 東京扭蛋 -->
+
+                <!-- 東京扭蛋 (Updated to Collapsible List) -->
                 <div class="relative">
-                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-red-400 rounded-full z-10"></div>
-                    <h4 class="text-lg font-bold text-slate-800">🔴 東京扭蛋聖地巡禮</h4>
-                    <p class="text-sm text-slate-500 mb-3">抵達東京後，建議前往池袋或秋葉原據點探索。</p>
-                    <a href="https://drive.google.com/file/d/1q5P1GkstZT6iTfaCNDn-OuHOtDvSRooW/view?usp=drive_link" target="_blank" class="btn-link inline-flex">
-                        <i class="fas fa-external-link-alt mr-2 text-red-500"></i> 開啟扭蛋資訊附件
-                    </a>
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-red-500 rounded-full z-10"></div>
+                    
+                    <details class="group">
+                        <summary class="cursor-pointer list-none">
+                            <div class="flex justify-between items-start">
+                                <h4 class="text-lg font-bold text-slate-800">
+                                    🔴 東京扭蛋聖地巡禮
+                                </h4>
+                                <span class="text-blue-500 transition-transform group-open:rotate-180 mt-1">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <p class="text-slate-500 text-sm mt-1">
+                                Kenele Stand 分店資訊 (點擊展開詳細地圖)
+                            </p>
+                        </summary>
+
+                        <div class="mt-3 space-y-3">
+                            
+                            <!-- 東京站 Area -->
+                            <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-map-marker-alt text-red-500 mr-2"></i>
+                                    <h5 class="font-bold text-red-900 text-sm">📍 東京車站周邊</h5>
+                                </div>
+                                <div class="space-y-2">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Kenele+Stand+Gransta+Yaekita" target="_blank" class="block bg-white p-3 rounded-lg border border-red-100 hover:shadow-sm transition">
+                                        <div class="flex justify-between items-start">
+                                            <span class="text-xs font-bold text-slate-800">Gransta Yaekita 店</span>
+                                            <span class="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded font-bold">改札外</span>
+                                        </div>
+                                        <p class="text-[10px] text-slate-500 mt-1">八重北食堂內 (不用進站)</p>
+                                    </a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Kenele+Stand+Echika+fit+Tokyo" target="_blank" class="block bg-white p-3 rounded-lg border border-red-100 hover:shadow-sm transition">
+                                        <div class="flex justify-between items-start">
+                                            <span class="text-xs font-bold text-slate-800">Echika fit 東京店</span>
+                                            <span class="text-[10px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold">改札內</span>
+                                        </div>
+                                        <p class="text-[10px] text-slate-500 mt-1">丸之內線剪票口內</p>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- 秋葉原 / 上野 Area -->
+                            <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>
+                                    <h5 class="font-bold text-blue-900 text-sm">📍 秋葉原 / 上野周邊</h5>
+                                </div>
+                                <div class="space-y-2">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Kenele+Stand+Akihabara" target="_blank" class="block bg-white p-3 rounded-lg border border-blue-100 hover:shadow-sm transition">
+                                        <div class="flex justify-between items-start">
+                                            <span class="text-xs font-bold text-slate-800">秋葉原店 (3F)</span>
+                                            <span class="text-[10px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold">改札內</span>
+                                        </div>
+                                        <p class="text-[10px] text-slate-500 mt-1">總武線6號月台後方通道</p>
+                                    </a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Kenele+Stand+Ueno" target="_blank" class="block bg-white p-3 rounded-lg border border-blue-100 hover:shadow-sm transition">
+                                        <div class="flex justify-between items-start">
+                                            <span class="text-xs font-bold text-slate-800">上野店 (ecute)</span>
+                                            <span class="text-[10px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold">改札內</span>
+                                        </div>
+                                        <p class="text-[10px] text-slate-500 mt-1">JR上野站3F 公園口通道</p>
+                                    </a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Kenele+Stand+Echika+fit+Ueno" target="_blank" class="block bg-white p-3 rounded-lg border border-blue-100 hover:shadow-sm transition">
+                                        <div class="flex justify-between items-start">
+                                            <span class="text-xs font-bold text-slate-800">Echika fit 上野店</span>
+                                            <span class="text-[10px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold">改札內</span>
+                                        </div>
+                                        <p class="text-[10px] text-slate-500 mt-1">銀座線剪票口內</p>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- 新橋 Area -->
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-map-marker-alt text-slate-500 mr-2"></i>
+                                    <h5 class="font-bold text-slate-900 text-sm">📍 新橋周邊</h5>
+                                </div>
+                                <div class="space-y-2">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Kenele+Stand+Shimbashi" target="_blank" class="block bg-white p-3 rounded-lg border border-slate-200 hover:shadow-sm transition">
+                                        <div class="flex justify-between items-start">
+                                            <span class="text-xs font-bold text-slate-800">新橋站店 (1F)</span>
+                                            <span class="text-[10px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold">改札內</span>
+                                        </div>
+                                        <p class="text-[10px] text-slate-500 mt-1">北改札附近</p>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <a href="https://drive.google.com/file/d/1q5P1GkstZT6iTfaCNDn-OuHOtDvSRooW/view?usp=drive_link" target="_blank" class="block text-center text-xs text-red-600 font-bold hover:underline pt-2">
+                                <i class="fas fa-file-pdf mr-1"></i> 查看完整扭蛋地圖附件
+                            </a>
+                        </div>
+                    </details>
                 </div>
+
+                <!-- 20:00 晚餐 -->
+                <div class="relative">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-amber-600 rounded-full z-10"></div>
+                    <h4 class="text-lg font-bold text-slate-800">🍽️ 20:00 晚餐：人形町今半</h4>
+                    <p class="text-sm text-slate-500 mb-2">壽喜燒百年老店 (人形町本店)</p>
+                    
+                    <div class="flex flex-col gap-2">
+                         <a href="https://restaurant.imahan.com/honten/" target="_blank" class="btn-link">
+                            <i class="fas fa-globe mr-2 text-amber-600"></i> Ningyocho Imahan
+                        </a>
+                        <a href="https://maps.app.goo.gl/TbUGd18d6nW94n437" target="_blank" class="btn-link">
+                            <i class="fas fa-map-marker-alt mr-2 text-red-500"></i> 人形町今半 本店
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </section>
     </main>
