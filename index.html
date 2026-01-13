@@ -246,7 +246,7 @@
                         <summary class="cursor-pointer list-none">
                             <div class="flex justify-between items-start">
                                 <h4 class="text-lg font-bold text-slate-800">
-                                    🧳 12:30 - 14:40 行李與自由活動
+                                    🧳 12:30 - 14:20 行李與自由活動
                                 </h4>
                                 <span class="text-blue-500 transition-transform group-open:rotate-180 mt-1">
                                     <i class="fas fa-chevron-down"></i>
@@ -308,14 +308,25 @@
                         <div class="p-3 bg-blue-50 rounded-lg border border-blue-100 text-sm text-slate-600">
                             <p class="font-bold text-blue-700 mb-1">✨ 推薦優點：</p>
                             <ul class="list-disc pl-4 space-y-1">
-                                <li>距離越後湯澤站僅 3 分鐘，交通超方便。</li>
+                                <li>距離越後湯澤站(西口)僅 3 分鐘，交通超方便。</li>
                                 <li>全館塌塌米地板，充滿日式風情。</li>
                                 <li>提供免費私人湯屋 (Private Onsen) 與夜鳴拉麵。</li>
                             </ul>
                         </div>
-                        <div class="pt-3 border-t border-slate-100">
-                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">🍽️ 晚餐推薦</p>
-                            <a href="https://www.yasuyoshi.net/menu.html" target="_blank" class="text-blue-600 text-base font-bold underline hover:text-blue-800">保よし (Yasuyoshi) 餐廳</a>
+                    </div>
+                </div>
+
+                <!-- D1 晚餐推薦 (升級為獨立綠色卡片) -->
+                <div class="relative">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-green-500 rounded-full z-10"></div>
+                    <div class="bg-green-50 p-6 rounded-2xl border border-green-100 shadow-sm">
+                        <h4 class="text-lg font-bold text-green-800 mb-4 flex items-center">
+                            <i class="fas fa-utensils mr-2"></i>D1 晚餐推薦 (越後湯澤站前)
+                        </h4>
+                        <div class="grid grid-cols-1 gap-3">
+                            <a href="https://www.yasuyoshi.net/menu.html" target="_blank" class="btn-link bg-white">
+                                <i class="fas fa-map-marker-alt mr-2 text-red-500"></i> 保よし (Yasuyoshi) 餐廳
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -329,21 +340,25 @@
                 <h2 class="text-3xl font-bold text-slate-800">1/22 (四) 石打丸山滑雪</h2>
             </div>
             <div class="relative pl-12 border-l-2 border-slate-200 ml-6 space-y-8">
-                <!-- 租借資訊 -->
+                
+                <!-- 1. 雪具租借資訊 (移除 Takano，優化單一選項排版) -->
                 <div class="relative">
                     <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-blue-400 rounded-full z-10"></div>
                     <h4 class="text-lg font-bold text-slate-800 mb-3">🎿 07:20-08:20 雪具租借商店</h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <a href="https://e-rental.info/shop/kamikiya.html" target="_blank" class="btn-link">
+                    
+                    <div class="flex flex-col gap-3">
+                        <a href="https://e-rental.info/shop/kamikiya.html" target="_blank" class="btn-link w-full">
                             <i class="fas fa-ski-lifting mr-2 text-blue-500"></i> e-RENTAL (神木屋)
                         </a>
-                        <a href="https://rentaltakano.wixsite.com/ishiuchi" target="_blank" class="btn-link">
-                            <i class="fas fa-ski-lifting mr-2 text-blue-500"></i> RENTAL TAKANO
+                        
+                        <!-- 雪具訂單資訊 -->
+                        <a href="https://drive.google.com/file/d/1Pi5S9zMxIHvCZtCE53jK3qmWQJv0WJI6/view?usp=drive_link" target="_blank" class="text-xs text-blue-600 font-bold flex items-center p-2.5 bg-blue-50 rounded-xl border border-blue-100 hover:bg-blue-100 transition">
+                            <i class="fas fa-file-invoice mr-2 text-blue-500"></i> 查看雪具預約訂單 (PDF)
                         </a>
                     </div>
                 </div>
 
-                <!-- 教學資訊 (Modified as Dropdown) -->
+                <!-- 2. 滑雪教學 (Restored Dropdown Style with Text Schedule) -->
                 <div class="relative">
                     <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-slate-400 rounded-full z-10"></div>
                     
@@ -358,37 +373,74 @@
                                 </span>
                             </div>
                             <p class="text-slate-500 text-sm mt-1">
-                                於石打丸山滑雪場與教練集合 (點擊查看詳情)
+                                於石打丸山滑雪場與教練集合 (點擊查看課程時間表)
                             </p>
                         </summary>
                         
-                        <div class="mt-3 bg-white p-4 rounded-xl border border-slate-200 shadow-sm text-sm text-slate-600">
-                            <!-- 優點整理區塊 (moved inside details) -->
-                            <div class="p-3 bg-blue-50 rounded-lg border border-blue-100">
-                                <p class="font-bold text-blue-700 mb-1">✨ 雪場優點：</p>
-                                <ul class="list-disc pl-4 space-y-1">
-                                    <li>擁有最新型 Sunrise Express 纜車，舒適度高。</li>
-                                    <li>雪道寬敞多樣，適合家庭與初學者。</li>
-                                    <li>The Veranda 觀景台視野極佳，可俯瞰魚沼平原。</li>
-                                </ul>
+                        <div class="mt-3 bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-sm">
+                            <div class="space-y-6 relative">
+                                <!-- Connecting line for the schedule -->
+                                <div class="absolute left-[7px] top-2 bottom-2 w-0.5 bg-slate-100 z-0"></div>
+
+                                <!-- 08:50 Part-1 -->
+                                <div class="relative z-10 flex items-start">
+                                    <div class="w-4 h-4 rounded-full bg-blue-500 border-2 border-white shadow-sm mt-0.5 mr-4 flex-shrink-0"></div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <span class="font-bold text-blue-600">08:50</span>
+                                        </div>
+                                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
+                                            <p class="font-bold text-slate-800">SKI Lesson Part-1</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 11:50 Lunch -->
+                                <div class="relative z-10 flex items-start">
+                                    <div class="w-4 h-4 rounded-full bg-orange-400 border-2 border-white shadow-sm mt-0.5 mr-4 flex-shrink-0"></div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <span class="font-bold text-orange-500">11:50</span>
+                                        </div>
+                                        <div class="p-3 bg-orange-50 rounded-lg border border-orange-100">
+                                            <p class="font-bold text-slate-800 mb-2">Lunch Break</p>
+                                            <a href="https://ishiuchi.or.jp/zh-TW/winter/facilities/restaurants/" target="_blank" class="inline-flex items-center text-xs font-bold text-orange-600 bg-white px-2 py-1.5 rounded border border-orange-200 hover:bg-orange-100 transition">
+                                                <i class="fas fa-utensils mr-2"></i> 石打丸山雪場餐廳資訊
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 12:50 Part-2 -->
+                                <div class="relative z-10 flex items-start">
+                                    <div class="w-4 h-4 rounded-full bg-blue-500 border-2 border-white shadow-sm mt-0.5 mr-4 flex-shrink-0"></div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <span class="font-bold text-blue-600">12:50</span>
+                                        </div>
+                                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
+                                            <p class="font-bold text-slate-800">SKI Lesson Part-2</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </details>
                 </div>
 
-                <!-- NEW: Pre check-in -->
+                <!-- 3. Pre check-in -->
                 <div class="relative">
                     <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-emerald-500 rounded-full z-10"></div>
-                    <h4 class="text-lg font-bold text-slate-800">📝 13:20 Pre check-in</h4>
+                    <h4 class="text-lg font-bold text-slate-800">📝 13:20 Pre check-in Veranda</h4>
                     <p class="text-sm text-slate-600 mt-1 flex items-center">
-                        <i class="fas fa-tent text-emerald-500 mr-2"></i>Veranda Tent
+                        <i class="fas fa-tent text-emerald-500 mr-2"></i>Amanda will check-in indivisually
                     </p>
                 </div>
 
-                <!-- 觀景台 (Updated time) -->
+                <!-- 4. 觀景與遊玩 (Button Style) -->
                 <div class="relative">
                     <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-amber-400 rounded-full z-10"></div>
-                    <h4 class="text-lg font-bold text-slate-800">🚠 13:50 觀景與雪地遊玩</h4>
+                    <h4 class="text-lg font-bold text-slate-800">🚠 13:50 觀景餐廳與雪地遊玩</h4>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
                         <a href="https://ishiuchi.or.jp/zh-TW/tips/snowterrace/" target="_blank" class="btn-link bg-amber-50 border-amber-100 text-amber-800 hover:bg-amber-100">
                             <i class="fas fa-mountain mr-2"></i> The Veranda 觀景台
@@ -399,34 +451,60 @@
                     </div>
                 </div>
 
-                <!-- 美食建議 -->
+                <!-- 5. 石打丸山資訊快捷 (Info Box Style - Moved Here) -->
                 <div class="relative">
-                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-green-500 rounded-full z-10"></div>
-                    <div class="bg-green-50 p-6 rounded-2xl border border-green-100 shadow-sm">
-                        <h4 class="text-lg font-bold text-green-800 mb-4 flex items-center">
-                            <i class="fas fa-utensils mr-2"></i>D2 美食建議
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-cyan-500 rounded-full z-10"></div>
+                    <div class="bg-cyan-50 p-4 rounded-2xl border border-cyan-100 shadow-sm">
+                        <h4 class="text-lg font-bold text-cyan-800 mb-3 flex items-center">
+                            <i class="fas fa-info-circle mr-2"></i>石打丸山實用資訊
                         </h4>
-                        <div class="space-y-4">
-                            <div>
-                                <span class="food-tag text-green-600">Lunch: 石打丸山雪場</span>
-                                <a href="https://ishiuchi.or.jp/zh-TW/winter/facilities/restaurants/" target="_blank" class="btn-link bg-white">
-                                    <i class="fas fa-external-link-alt mr-2"></i> 雪場餐廳官方列表
+                        <div class="grid grid-cols-2 gap-2 text-xs font-bold">
+                            <a href="https://ishiuchi.or.jp/zh-TW/winter/" target="_blank" class="flex items-center justify-center p-2 bg-white rounded-lg text-cyan-700 hover:bg-cyan-100 transition">
+                                <i class="fas fa-home mr-1"></i> 官網首頁
+                            </a>
+                            <a href="https://ishiuchi.or.jp/zh-TW/winter/livecamera/" target="_blank" class="flex items-center justify-center p-2 bg-white rounded-lg text-red-500 hover:bg-red-50 transition">
+                                <i class="fas fa-video mr-1"></i> 即時攝影機
+                            </a>
+                            <a href="https://ishiuchi.or.jp/en/winter/ski/lift-course/" target="_blank" class="flex items-center justify-center p-2 bg-white rounded-lg text-cyan-700 hover:bg-cyan-100 transition">
+                                <i class="fas fa-chair mr-1"></i> 纜車營運
+                            </a>
+                            <a href="https://ishiuchi.or.jp/zh-TW/winter/facilities/restaurants/" target="_blank" class="flex items-center justify-center p-2 bg-white rounded-lg text-orange-500 hover:bg-orange-50 transition">
+                                <i class="fas fa-utensils mr-1"></i> 雪場餐廳
+                            </a>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <p class="text-[10px] font-bold text-cyan-600 mb-1 uppercase tracking-wider">🚌 交通接駁 (時刻表圖片)</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                <a href="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://ishiuchi.or.jp/winter/wp/wp-content/uploads/2025/12/25-26%E7%9F%B3%E6%89%93%E4%B8%B8%E5%B1%B1%E3%82%B7%E3%83%A3%E3%83%88%E3%83%AB%E3%83%90%E3%82%B9%E6%99%82%E5%88%BB%E8%A1%A82-scaled.jpg" target="_blank" class="flex items-center p-2 bg-white rounded-lg text-cyan-800 text-xs font-bold hover:shadow-md transition">
+                                    <i class="fas fa-bus mr-2 text-cyan-500"></i> 石打丸山 Bus
                                 </a>
-                            </div>
-                            <div>
-                                <span class="food-tag text-green-600">Dinner: 湯澤市區推薦</span>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <a href="https://www.google.com/maps/place/Chaya+Moritaki/data=!4m2!3m1!19sChIJBdCbiyMCHmARJUcEcTLCzdY" target="_blank" class="btn-link bg-white">
-                                        <i class="fas fa-map-marker-alt mr-2 text-red-500"></i> 森瀧 (烏龍麵)
-                                    </a>
-                                    <a href="https://www.google.com/maps/place/Kaisen+Douraku+Totoya/data=!4m2!3m1!19sChIJdT-y2yQCHmARZhBvtGjgvug" target="_blank" class="btn-link bg-white">
-                                        <i class="fas fa-map-marker-alt mr-2 text-red-500"></i> 海鮮道楽 ととや
-                                    </a>
-                                </div>
+                                <a href="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://ishiuchi.or.jp/winter/wp/wp-content/uploads/2025/12/4%E7%A4%BE%E3%82%B7%E3%83%A3%E3%83%88%E3%83%AB%E3%83%90%E3%82%B9%E6%99%82%E5%88%BB%E8%A1%A8-scaled.jpg" target="_blank" class="flex items-center p-2 bg-white rounded-lg text-cyan-800 text-xs font-bold hover:shadow-md transition">
+                                    <i class="fas fa-bus-alt mr-2 text-purple-500"></i> 4社聯營 Bus
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- 6. 晚餐建議 (Green Box Style) -->
+                <div class="relative">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-green-500 rounded-full z-10"></div>
+                    <div class="bg-green-50 p-6 rounded-2xl border border-green-100 shadow-sm">
+                        <h4 class="text-lg font-bold text-green-800 mb-4 flex items-center">
+                            <i class="fas fa-utensils mr-2"></i>D2 晚餐推薦 (湯澤市區)
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <a href="https://www.google.com/maps/place/Chaya+Moritaki/data=!4m2!3m1!19sChIJBdCbiyMCHmARJUcEcTLCzdY" target="_blank" class="btn-link bg-white">
+                                <i class="fas fa-map-marker-alt mr-2 text-red-500"></i> 森瀧 (烏龍麵鍋)
+                            </a>
+                            <a href="https://www.google.com/maps/place/Kaisen+Douraku+Totoya/data=!4m2!3m1!19sChIJdT-y2yQCHmARZhBvtGjgvug" target="_blank" class="btn-link bg-white">
+                                <i class="fas fa-map-marker-alt mr-2 text-red-500"></i> 海鮮道楽 ととや
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
