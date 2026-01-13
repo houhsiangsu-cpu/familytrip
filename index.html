@@ -15,12 +15,6 @@
             scroll-behavior: smooth;
         }
 
-        .nav-glass {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-        }
-
         .timeline-line {
             position: absolute;
             left: 24px;
@@ -31,8 +25,8 @@
         }
 
         .day-section {
-            padding-top: 80px;
-            margin-top: -60px;
+            scroll-margin-top: 20px; 
+            margin-bottom: 4rem;
         }
 
         .card-hover {
@@ -50,6 +44,15 @@
 
         .food-tag {
             @apply text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-white/50 mb-2 inline-block;
+        }
+
+        /* Checkbox Custom Style */
+        .custom-checkbox input:checked + div {
+            background-color: #10b981;
+            border-color: #10b981;
+        }
+        .custom-checkbox input:checked + div svg {
+            display: block;
         }
 
         /* Modal Styles */
@@ -114,39 +117,48 @@
 </head>
 <body class="text-slate-800">
 
-    <!-- 導覽列 -->
-    <nav class="nav-glass fixed top-0 left-0 right-0 z-50 px-4 py-3 shadow-sm">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="font-bold text-blue-600 flex items-center">
-                <i class="fas fa-snowflake mr-2"></i>
-                <span class="text-lg">KiKiLaLa Tokyo 2026</span>
-            </div>
-            <div class="flex space-x-2 text-[12px] md:text-sm font-bold">
-                <a href="#cheat-sheet" class="bg-slate-100 px-3 py-1.5 rounded-lg hover:bg-blue-100 transition">快速清單</a>
-                <a href="#day1" class="bg-slate-100 px-3 py-1.5 rounded-lg hover:bg-blue-100 transition">D1</a>
-                <a href="#day2" class="bg-slate-100 px-3 py-1.5 rounded-lg hover:bg-blue-100 transition">D2</a>
-                <a href="#day3" class="bg-slate-100 px-3 py-1.5 rounded-lg hover:bg-blue-100 transition">D3</a>
-                <a href="#transport" class="bg-blue-600 text-white px-3 py-1.5 rounded-lg hover:bg-blue-700 transition">交通</a>
-            </div>
-        </div>
-    </nav>
-
     <!-- Header -->
-    <header class="bg-slate-900 text-white pt-32 pb-20 px-6 text-center">
-        <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-tight">2026 KiKiLaLa Family go to Tokyo</h1>
-        <p class="text-slate-400 text-lg">2026.01.21 - 01.28 | 越後湯澤 ・ 東京 ・ 迪士尼</p>
+    <header class="bg-slate-900 text-white py-12 px-6 text-center">
+        <h1 class="text-3xl md:text-5xl font-bold mb-3 tracking-tight">2026 KiKiLaLa Family go to Tokyo</h1>
+        <p class="text-slate-400 text-sm md:text-base mb-8">2026.01.21 - 01.28 | 越後湯澤 ・ 東京 ・ 迪士尼</p>
+        
+        <!-- 導覽按鈕區 (新增 Checklist 與 購物) -->
+        <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+            <a href="#cheat-sheet" class="bg-slate-800 border border-slate-700 text-slate-200 px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-blue-600 hover:text-white hover:border-blue-500 transition-all active:scale-95">
+                <i class="fas fa-bolt text-yellow-500 mr-1.5"></i>快速清單
+            </a>
+            <a href="#day1" class="bg-slate-800 border border-slate-700 text-slate-200 px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-blue-600 hover:text-white hover:border-blue-500 transition-all active:scale-95">
+                D1
+            </a>
+            <a href="#day2" class="bg-slate-800 border border-slate-700 text-slate-200 px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-blue-600 hover:text-white hover:border-blue-500 transition-all active:scale-95">
+                D2
+            </a>
+            <a href="#day3" class="bg-slate-800 border border-slate-700 text-slate-200 px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-blue-600 hover:text-white hover:border-blue-500 transition-all active:scale-95">
+                D3
+            </a>
+            <a href="#transport" class="bg-blue-700 border border-blue-600 text-white px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-blue-600 hover:border-blue-500 transition-all active:scale-95">
+                <i class="fas fa-train mr-1.5"></i>交通
+            </a>
+            <!-- 新增按鈕 -->
+            <a href="#checklist" class="bg-emerald-700 border border-emerald-600 text-white px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-emerald-600 hover:border-emerald-500 transition-all active:scale-95">
+                <i class="fas fa-check-square mr-1.5"></i>檢查
+            </a>
+            <a href="#shopping" class="bg-pink-600 border border-pink-500 text-white px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-pink-500 hover:border-pink-400 transition-all active:scale-95">
+                <i class="fas fa-shopping-bag mr-1.5"></i>購物
+            </a>
+        </div>
     </header>
 
-    <main class="max-w-4xl mx-auto px-4 py-12">
+    <main class="max-w-4xl mx-auto px-4 py-8">
 
         <!-- 快速清單 (Cheat Sheet) -->
-        <section id="cheat-sheet" class="day-section mb-16">
+        <section id="cheat-sheet" class="day-section">
             <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200">
                 <h2 class="text-2xl font-bold mb-6 flex items-center text-slate-800">
                     <i class="fas fa-bolt text-yellow-500 mr-3"></i>快速清單
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <!-- 航班資訊 (已更新為連結) -->
+                    <!-- 航班資訊 -->
                     <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100">
                         <h3 class="text-xs font-bold text-slate-400 mb-3 uppercase tracking-widest">✈️ 航班資訊 (點擊查看)</h3>
                         
@@ -335,7 +347,7 @@
         </section>
 
         <!-- Day 2 行程 -->
-        <section id="day2" class="day-section mt-16">
+        <section id="day2" class="day-section">
             <div class="flex items-center mb-8">
                 <div class="bg-blue-600 text-white w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-2xl mr-4 shadow-lg shadow-blue-100">D2</div>
                 <h2 class="text-3xl font-bold text-slate-800">1/22 (四) 石打丸山滑雪</h2>
@@ -359,7 +371,7 @@
                     </div>
                 </div>
 
-                <!-- 2. 滑雪教學 (Restored Dropdown Style with Text Schedule) -->
+                <!-- 2. 滑雪教學 -->
                 <div class="relative">
                     <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-slate-400 rounded-full z-10"></div>
                     
@@ -432,13 +444,13 @@
                 <!-- 3. Pre check-in -->
                 <div class="relative">
                     <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-emerald-500 rounded-full z-10"></div>
-                    <h4 class="text-lg font-bold text-slate-800">📝 13:20 Pre check-in Veranda</h4>
+                    <h4 class="text-lg font-bold text-slate-800">📝 12:50 Pre check-in Veranda</h4>
                     <p class="text-sm text-slate-600 mt-1 flex items-center">
                         <i class="fas fa-tent text-emerald-500 mr-2"></i>Amanda will check-in indivisually
                     </p>
                 </div>
 
-                <!-- 4. 觀景與遊玩 (Button Style) -->
+                <!-- 4. 觀景與遊玩 -->
                 <div class="relative">
                     <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-amber-400 rounded-full z-10"></div>
                     <h4 class="text-lg font-bold text-slate-800">🚠 13:50 觀景餐廳與雪地遊玩</h4>
@@ -452,7 +464,7 @@
                     </div>
                 </div>
 
-                <!-- 5. 石打丸山資訊快捷 (Info Box Style - Moved Here) -->
+                <!-- 5. 石打丸山資訊快捷 -->
                 <div class="relative">
                     <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-cyan-500 rounded-full z-10"></div>
                     <div class="bg-cyan-50 p-4 rounded-2xl border border-cyan-100 shadow-sm">
@@ -488,7 +500,7 @@
                     </div>
                 </div>
 
-                <!-- 6. 晚餐建議 (Green Box Style) -->
+                <!-- 6. 晚餐建議 -->
                 <div class="relative">
                     <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-green-500 rounded-full z-10"></div>
                     <div class="bg-green-50 p-6 rounded-2xl border border-green-100 shadow-sm">
@@ -510,8 +522,7 @@
         </section>
 
         <!-- Day 3 行程 -->
-        <section id="day3" class="day-section mt-16 mb-20">
-            <!-- 修正：將 Icon 顏色改為藍色 -->
+        <section id="day3" class="day-section">
             <div class="flex items-center mb-8">
                 <div class="bg-blue-600 text-white w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-2xl mr-4 shadow-lg shadow-blue-100">D3</div>
                 <h2 class="text-3xl font-bold text-slate-800">1/23 (五) 越後湯澤 - 東京</h2>
@@ -536,14 +547,14 @@
                     <p class="text-slate-700 text-sm font-bold">JR Toki 325 (座位：10號車 3D/3E/4D/4E)</p>
                 </div>
 
-                <!-- 行程點 4: Check-in (Updated Time) -->
+                <!-- 行程點 4: Check-in -->
                 <div class="relative">
                     <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-blue-600 rounded-full z-10"></div>
                     <h4 class="text-lg font-bold text-slate-800">🏨 15:30 東京飯店 Check-in</h4>
                     <p class="text-slate-500 text-sm">Hotel MONday Apart Premium</p>
                 </div>
 
-                <!-- 東京扭蛋 (Updated to Collapsible List) -->
+                <!-- 東京扭蛋 -->
                 <div class="relative">
                     <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-red-500 rounded-full z-10"></div>
                     
@@ -671,7 +682,7 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     
-                    <!-- Tokyo Metro Card (Expanded with Details) -->
+                    <!-- Tokyo Metro Card -->
                     <div class="md:col-span-2 bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden">
                         <!-- Header -->
                         <div class="p-5 border-b border-slate-200 flex justify-between items-center bg-blue-600 text-white">
@@ -703,10 +714,10 @@
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                                         <div>
                                             <p class="text-xs font-bold text-slate-400 mb-1">1. 車站查詢</p>
-                                            <a href="https://www.tokyometro.jp/lang_tcn/station/inaricho/index.html" target="_blank" class="flex items-center p-3 bg-slate-50 rounded border border-slate-200 hover:border-blue-400 transition text-blue-600">
+                                            <a href="https://www.tokyometro.jp/tcn/route_station/index.html" target="_blank" class="flex items-center p-3 bg-slate-50 rounded border border-slate-200 hover:border-blue-400 transition text-blue-600">
                                                 <i class="fas fa-subway mr-3 text-lg"></i>
                                                 <div>
-                                                    <div class="font-bold text-sm">稻荷町站 (Inaricho)</div>
+                                                    <div class="font-bold text-sm">車站 </div>
                                                     <div class="text-[10px] text-slate-500">時刻表與出口資訊</div>
                                                 </div>
                                                 <i class="fas fa-external-link-alt ml-auto text-xs"></i>
@@ -795,18 +806,214 @@
                         </div>
                     </div>
 
-                    <!-- Yahoo Transit (保持原樣，調整為小卡) -->
+                    <!-- Yahoo Transit -->
                     <a href="https://transit.yahoo.co.jp/" target="_blank" class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-red-300 hover:shadow-md transition group">
                         <h3 class="text-lg font-bold text-slate-800 mb-2 group-hover:text-red-600"><i class="fas fa-search-location mr-2 text-red-500"></i>Yahoo! 乘換案內</h3>
                         <p class="text-sm text-slate-500">日本最強電車轉乘查詢 (必備)</p>
                     </a>
 
-                    <!-- Limousine Bus (保持原樣，調整為小卡) -->
+                    <!-- Limousine Bus -->
                     <a href="https://livejapan.com/zh-tw/alliance/limousinebus/" target="_blank" class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-orange-300 hover:shadow-md transition group">
                         <h3 class="text-lg font-bold text-slate-800 mb-2 group-hover:text-orange-600"><i class="fas fa-bus mr-2 text-orange-500"></i>利木津巴士</h3>
                         <p class="text-sm text-slate-500">機場接送巴士預約</p>
                     </a>
 
+                </div>
+            </div>
+        </section>
+
+        <!-- 新增: Checklist 行前清單 -->
+        <section id="checklist" class="day-section mb-16">
+            <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200">
+                <h2 class="text-2xl font-bold mb-6 flex items-center text-slate-800">
+                    <i class="fas fa-clipboard-check text-emerald-500 mr-3"></i>行前檢查清單 (Checklist)
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 重要文件 -->
+                    <div class="bg-emerald-50 rounded-2xl p-5 border border-emerald-100">
+                        <h3 class="font-bold text-emerald-800 mb-3 text-sm uppercase tracking-wide">📂 重要文件</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-emerald-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">護照 (有效期限 > 6個月)</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-emerald-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">Visit Japan Web 截圖</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-emerald-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">JR 訂票 QR Code (截圖/紙本)</span>
+                            </label>
+                             <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-emerald-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">飯店預約確認單 (PDF)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 電子與網路 -->
+                    <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200">
+                        <h3 class="font-bold text-slate-600 mb-3 text-sm uppercase tracking-wide">🔌 電子與網路</h3>
+                         <div class="space-y-2">
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-slate-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">網卡 / 漫遊開通</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-slate-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">充電器 / 行動電源</span>
+                            </label>
+                             <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-slate-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">轉接頭 (日本雙孔扁插)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 滑雪與衣物 -->
+                     <div class="bg-blue-50 rounded-2xl p-5 border border-blue-100">
+                        <h3 class="font-bold text-blue-800 mb-3 text-sm uppercase tracking-wide">❄️ 滑雪與衣物</h3>
+                         <div class="space-y-2">
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-blue-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">雪襪 (厚長襪)</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-blue-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">發熱衣 / 內搭褲</span>
+                            </label>
+                             <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-blue-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">毛帽 / 手套 / 圍巾</span>
+                            </label>
+                        </div>
+                    </div>
+                     <!-- 錢財與雜物 -->
+                     <div class="bg-amber-50 rounded-2xl p-5 border border-amber-100">
+                        <h3 class="font-bold text-amber-800 mb-3 text-sm uppercase tracking-wide">💰 錢財與其他</h3>
+                         <div class="space-y-2">
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-amber-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">日幣現金 (Cash)</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-amber-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">信用卡 (海外回饋高)</span>
+                            </label>
+                             <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-amber-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">常備藥品 (感冒/腸胃/止痛)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 新增: 購物清單 -->
+        <section id="shopping" class="day-section mb-16">
+            <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200">
+                <h2 class="text-2xl font-bold mb-6 flex items-center text-slate-800">
+                    <i class="fas fa-shopping-bag text-pink-500 mr-3"></i>購物清單 (Shopping)
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- 藥妝 -->
+                    <div class="border border-pink-100 bg-pink-50 rounded-xl p-4">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-pink-200 text-pink-700 p-1.5 rounded-lg mr-2"><i class="fas fa-pump-medical"></i></span>
+                            <h3 class="font-bold text-slate-700">藥妝 / 美妝</h3>
+                        </div>
+                        <ul class="list-disc list-inside text-sm text-slate-600 pl-1 space-y-1">
+                            <li>合利他命 / EVE 止痛藥</li>
+                            <li>Wakamoto / 欣表飛鳴</li>
+                            <li>面膜 / 防曬乳</li>
+                            <li>休足時間 / 蒸氣眼罩</li>
+                        </ul>
+                    </div>
+
+                    <!-- 服飾 -->
+                    <div class="border border-indigo-100 bg-indigo-50 rounded-xl p-4">
+                         <div class="flex items-center mb-2">
+                            <span class="bg-indigo-200 text-indigo-700 p-1.5 rounded-lg mr-2"><i class="fas fa-tshirt"></i></span>
+                            <h3 class="font-bold text-slate-700">服飾 / 雜貨</h3>
+                        </div>
+                        <ul class="list-disc list-inside text-sm text-slate-600 pl-1 space-y-1">
+                            <li>Uniqlo / GU (發熱衣/羽絨)</li>
+                            <li>ABC Mart (球鞋)</li>
+                            <li>Montbell (戶外用品)</li>
+                            <li>Standard Products (雜貨)</li>
+                        </ul>
+                    </div>
+
+                    <!-- 零食伴手禮 -->
+                    <div class="border border-orange-100 bg-orange-50 rounded-xl p-4">
+                         <div class="flex items-center mb-2">
+                            <span class="bg-orange-200 text-orange-700 p-1.5 rounded-lg mr-2"><i class="fas fa-cookie-bite"></i></span>
+                            <h3 class="font-bold text-slate-700">零食 / 伴手禮</h3>
+                        </div>
+                        <ul class="list-disc list-inside text-sm text-slate-600 pl-1 space-y-1">
+                            <li>NewYork Perfect Cheese</li>
+                            <li>Press Butter Sand</li>
+                            <li>東京香蕉 (Tokyo Banana)</li>
+                            <li>KitKat (日本限定口味)</li>
+                        </ul>
+                    </div>
+
+                    <!-- 角色周邊 -->
+                    <div class="border border-purple-100 bg-purple-50 rounded-xl p-4">
+                         <div class="flex items-center mb-2">
+                            <span class="bg-purple-200 text-purple-700 p-1.5 rounded-lg mr-2"><i class="fas fa-star"></i></span>
+                            <h3 class="font-bold text-slate-700">扭蛋 & 角色周邊</h3>
+                        </div>
+                        <ul class="list-disc list-inside text-sm text-slate-600 pl-1 space-y-1">
+                            <li>KiKiLaLa 周邊</li>
+                            <li>迪士尼商店 (Disney Store)</li>
+                            <li>吉卜力共和國</li>
+                            <li>Kenele Stand 扭蛋</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
