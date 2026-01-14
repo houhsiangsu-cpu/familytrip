@@ -122,7 +122,7 @@
         <h1 class="text-3xl md:text-5xl font-bold mb-3 tracking-tight">2026 KiKiLaLa Family go to Tokyo</h1>
         <p class="text-slate-400 text-sm md:text-base mb-8">2026.01.21 - 01.28 | 越後湯澤 ・ 東京 ・ 迪士尼</p>
         
-        <!-- 導覽按鈕區 (新增 Checklist 與 購物) -->
+        <!-- 導覽按鈕區 (新增 D4~6) -->
         <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
             <a href="#cheat-sheet" class="bg-slate-800 border border-slate-700 text-slate-200 px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-blue-600 hover:text-white hover:border-blue-500 transition-all active:scale-95">
                 <i class="fas fa-bolt text-yellow-500 mr-1.5"></i>快速清單
@@ -136,10 +136,13 @@
             <a href="#day3" class="bg-slate-800 border border-slate-700 text-slate-200 px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-blue-600 hover:text-white hover:border-blue-500 transition-all active:scale-95">
                 D3
             </a>
+            <!-- 新增 D4~6 按鈕 -->
+            <a href="#day4-6" class="bg-slate-800 border border-slate-700 text-slate-200 px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-blue-600 hover:text-white hover:border-blue-500 transition-all active:scale-95">
+                D4~6
+            </a>
             <a href="#transport" class="bg-blue-700 border border-blue-600 text-white px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-blue-600 hover:border-blue-500 transition-all active:scale-95">
                 <i class="fas fa-train mr-1.5"></i>交通
             </a>
-            <!-- 新增按鈕 -->
             <a href="#checklist" class="bg-emerald-700 border border-emerald-600 text-white px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-emerald-600 hover:border-emerald-500 transition-all active:scale-95">
                 <i class="fas fa-check-square mr-1.5"></i>檢查
             </a>
@@ -673,6 +676,42 @@
             </div>
         </section>
 
+        <!-- D4-D6 行程 -->
+        <section id="day4-6" class="day-section">
+            <div class="flex items-center mb-8">
+                <div class="bg-blue-600 text-white w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-xl mr-4 shadow-lg shadow-blue-100">D4-6</div>
+                <h2 class="text-3xl font-bold text-slate-800">D4~D6 東京市區</h2>
+            </div>
+            
+            <div class="relative pl-12 border-l-2 border-slate-200 ml-6 space-y-10">
+                
+                <!-- 美食餐廳 -->
+                <div class="relative">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-orange-500 rounded-full z-10"></div>
+                    <h4 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                        <i class="fas fa-utensils text-orange-500 mr-3"></i>美食餐廳
+                    </h4>
+                    <!-- Content placeholder -->
+                    <div class="bg-orange-50 p-6 rounded-2xl border border-orange-100">
+                        <p class="text-slate-500 text-sm text-center italic">待補：東京市區餐廳清單</p>
+                    </div>
+                </div>
+
+                <!-- 商店Shopping -->
+                <div class="relative">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-pink-500 rounded-full z-10"></div>
+                    <h4 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                        <i class="fas fa-shopping-bag text-pink-500 mr-3"></i>商店 Shopping
+                    </h4>
+                    <!-- Content placeholder -->
+                    <div class="bg-pink-50 p-6 rounded-2xl border border-pink-100">
+                        <p class="text-slate-500 text-sm text-center italic">待補：購物清單與地點</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
         <!-- 交通資訊 -->
         <section id="transport" class="day-section mb-16">
             <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200">
@@ -712,9 +751,9 @@
                                     
                                     <!-- 1. 車站與路線 -->
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                        <div>
+                                        <div class="flex flex-col">
                                             <p class="text-xs font-bold text-slate-400 mb-1">1. 車站查詢</p>
-                                            <a href="https://www.tokyometro.jp/tcn/route_station/index.html" target="_blank" class="flex items-center p-3 bg-slate-50 rounded border border-slate-200 hover:border-blue-400 transition text-blue-600">
+                                            <a href="https://www.tokyometro.jp/tcn/route_station/index.html" target="_blank" class="flex items-center p-3 bg-slate-50 rounded border border-slate-200 hover:border-blue-400 transition text-blue-600 flex-1">
                                                 <i class="fas fa-subway mr-3 text-lg"></i>
                                                 <div>
                                                     <div class="font-bold text-sm">車站 </div>
@@ -723,11 +762,12 @@
                                                 <i class="fas fa-external-link-alt ml-auto text-xs"></i>
                                             </a>
                                         </div>
-                                        <div>
+                                        <div class="flex flex-col">
                                             <p class="text-xs font-bold text-slate-400 mb-1">2. 路線圖</p>
-                                            <div class="bg-slate-100 rounded p-3 h-full flex items-center justify-center text-slate-400 text-sm italic border border-slate-200 border-dashed">
-                                                TBD (待補)
-                                            </div>
+                                            <a href="https://drive.google.com/file/d/1JnDXiGs_IKHWpFG-vr0i-riHe6TE0oni/view?usp=drive_link" target="_blank" class="flex items-center justify-center p-3 bg-white rounded border border-blue-200 hover:border-blue-400 hover:shadow-sm transition-all text-blue-600 flex-1">
+                                                <i class="fas fa-map mr-2"></i>
+                                                <span class="text-sm font-bold">查看路線圖 (PDF)</span>
+                                            </a>
                                         </div>
                                     </div>
 
@@ -859,7 +899,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- 重要文件 -->
                     <div class="bg-emerald-50 rounded-2xl p-5 border border-emerald-100">
-                        <h3 class="font-bold text-emerald-800 mb-3 text-sm uppercase tracking-wide">📂 重要文件</h3>
+                        <h3 class="font-bold text-emerald-800 mb-3 text-sm uppercase tracking-wide">📂 重要文件與💰 錢財</h3>
                         <div class="space-y-2">
                             <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
                                 <input type="checkbox" class="hidden">
@@ -889,6 +929,20 @@
                                 </div>
                                 <span class="text-sm text-slate-700">飯店預約確認單 (PDF)</span>
                             </label>
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-emerald-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">日幣現金 (Cash)</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-emerald-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">信用卡 (海外回饋高)</span>
+                            </label>
                         </div>
                     </div>
 
@@ -908,14 +962,21 @@
                                 <div class="w-5 h-5 border-2 border-slate-300 rounded flex items-center justify-center transition-colors bg-white">
                                     <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                                 </div>
-                                <span class="text-sm text-slate-700">充電器 / 行動電源</span>
+                                <span class="text-sm text-slate-700">充電器 / 行動電源 / 轉接頭</span>
                             </label>
-                             <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
                                 <input type="checkbox" class="hidden">
                                 <div class="w-5 h-5 border-2 border-slate-300 rounded flex items-center justify-center transition-colors bg-white">
                                     <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                                 </div>
-                                <span class="text-sm text-slate-700">轉接頭 (日本雙孔扁插)</span>
+                                <span class="text-sm text-slate-700">Hair dry / Mobile Speaker</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-slate-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">iPad / PC</span>
                             </label>
                         </div>
                     </div>
@@ -924,53 +985,112 @@
                      <div class="bg-blue-50 rounded-2xl p-5 border border-blue-100">
                         <h3 class="font-bold text-blue-800 mb-3 text-sm uppercase tracking-wide">❄️ 滑雪與衣物</h3>
                          <div class="space-y-2">
+                            <!-- Existing Items -->
                             <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
                                 <input type="checkbox" class="hidden">
                                 <div class="w-5 h-5 border-2 border-blue-300 rounded flex items-center justify-center transition-colors bg-white">
                                     <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                                 </div>
-                                <span class="text-sm text-slate-700">雪襪 (厚長襪)</span>
+                                <span class="text-sm text-slate-700">雪襪 (厚長襪)/ 發熱衣 / 內搭褲</span>
                             </label>
                             <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
                                 <input type="checkbox" class="hidden">
                                 <div class="w-5 h-5 border-2 border-blue-300 rounded flex items-center justify-center transition-colors bg-white">
                                     <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                                 </div>
-                                <span class="text-sm text-slate-700">發熱衣 / 內搭褲</span>
+                                <span class="text-sm text-slate-700">雪鏡 / 手套 / 免洗頭罩</span>
                             </label>
                              <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
                                 <input type="checkbox" class="hidden">
                                 <div class="w-5 h-5 border-2 border-blue-300 rounded flex items-center justify-center transition-colors bg-white">
                                     <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                                 </div>
-                                <span class="text-sm text-slate-700">毛帽 / 手套 / 圍巾</span>
+                                <span class="text-sm text-slate-700">毛帽 / 圍脖 / 暖暖包</span>
+                            </label>
+                            
+                            <!-- New Items (Merged for cleaner layout) -->
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-blue-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">內衣褲 x N / 免洗內褲 x N</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-blue-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">睡衣/褲 / 外出衣物 x N</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-blue-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">毛衣 / 領巾🧣</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-blue-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">球鞋/拖鞋 / 皮鞋👞 / 球鞋👟</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-blue-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">小棉被 / 小白/大鑽</span>
                             </label>
                         </div>
                     </div>
-                     <!-- 錢財與雜物 -->
+                     <!-- 錢財與雜物 (Updated Content) -->
                      <div class="bg-amber-50 rounded-2xl p-5 border border-amber-100">
-                        <h3 class="font-bold text-amber-800 mb-3 text-sm uppercase tracking-wide">💰 錢財與其他</h3>
+                        <h3 class="font-bold text-amber-800 mb-3 text-sm uppercase tracking-wide">其他</h3>
                          <div class="space-y-2">
                             <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
                                 <input type="checkbox" class="hidden">
                                 <div class="w-5 h-5 border-2 border-amber-300 rounded flex items-center justify-center transition-colors bg-white">
                                     <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                                 </div>
-                                <span class="text-sm text-slate-700">日幣現金 (Cash)</span>
+                                <span class="text-sm text-slate-700">常備藥品 (感冒/腸胃/止痛)</span>
                             </label>
                             <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
                                 <input type="checkbox" class="hidden">
                                 <div class="w-5 h-5 border-2 border-amber-300 rounded flex items-center justify-center transition-colors bg-white">
                                     <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                                 </div>
-                                <span class="text-sm text-slate-700">信用卡 (海外回饋高)</span>
+                                <span class="text-sm text-slate-700">化妝包 all / 盥洗包</span>
                             </label>
-                             <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
                                 <input type="checkbox" class="hidden">
                                 <div class="w-5 h-5 border-2 border-amber-300 rounded flex items-center justify-center transition-colors bg-white">
                                     <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                                 </div>
-                                <span class="text-sm text-slate-700">常備藥品 (感冒/腸胃/止痛)</span>
+                                <span class="text-sm text-slate-700">隱形眼鏡 / 眼鏡</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-amber-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">衛生紙 / 濕紙巾 / 酒精擦</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-amber-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">牙膏 / 牙刷🪥 / 指甲剪</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer custom-checkbox">
+                                <input type="checkbox" class="hidden">
+                                <div class="w-5 h-5 border-2 border-amber-300 rounded flex items-center justify-center transition-colors bg-white">
+                                    <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-700">髮蠟 / 保溫瓶 / 茶葉</span>
                             </label>
                         </div>
                     </div>
