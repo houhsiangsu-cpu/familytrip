@@ -25,7 +25,7 @@
         }
 
         .day-section {
-            scroll-margin-top: 20px; 
+            scroll-margin-top: 160px; /* 增加偏移量，避免被 Header 擋住 */
             margin-bottom: 4rem;
         }
 
@@ -113,41 +113,49 @@
             0%    {opacity: 0; transform: translateY(-10px)}
             100%  {opacity: 1; transform: translateY(0)}
         }
+
+        /* Hide scrollbar for horizontal scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
     </style>
 </head>
 <body class="text-slate-800">
 
     <!-- Header -->
-    <header class="bg-slate-900 text-white py-12 px-6 text-center">
-        <h1 class="text-3xl md:text-5xl font-bold mb-3 tracking-tight">2026 KiKiLaLa Family go to Tokyo</h1>
-        <p class="text-slate-400 text-sm md:text-base mb-8">2026.01.21 - 01.28 | 越後湯澤 ・ 東京 ・ 迪士尼</p>
+    <header class="bg-slate-900 text-white py-8 px-4 text-center sticky top-0 z-40 shadow-xl transition-all duration-300">
+        <h1 class="text-2xl md:text-3xl font-bold mb-1 tracking-tight">2026 KiKiLaLa Tokyo</h1>
+        <p class="text-slate-400 text-xs mb-4">1/21 - 1/28 | 越後湯澤 ・ 東京 ・ 迪士尼</p>
         
-        <!-- 導覽按鈕區 (新增 D4~6) -->
-        <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
-            <a href="#cheat-sheet" class="bg-slate-800 border border-slate-700 text-slate-200 px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-blue-600 hover:text-white hover:border-blue-500 transition-all active:scale-95">
-                <i class="fas fa-bolt text-yellow-500 mr-1.5"></i>快速清單
+        <!-- 導覽按鈕區 (Scrollable) -->
+        <div class="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto overflow-x-auto no-scrollbar pb-2 px-2">
+            <a href="#cheat-sheet" class="flex-shrink-0 bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-blue-600 hover:text-white transition-all whitespace-nowrap">
+                <i class="fas fa-bolt text-yellow-500 mr-1"></i>清單
             </a>
-            <a href="#day1" class="bg-slate-800 border border-slate-700 text-slate-200 px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-blue-600 hover:text-white hover:border-blue-500 transition-all active:scale-95">
+            <a href="#day1" class="flex-shrink-0 bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-blue-600 hover:text-white transition-all whitespace-nowrap">
                 D1
             </a>
-            <a href="#day2" class="bg-slate-800 border border-slate-700 text-slate-200 px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-blue-600 hover:text-white hover:border-blue-500 transition-all active:scale-95">
+            <a href="#day2" class="flex-shrink-0 bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-blue-600 hover:text-white transition-all whitespace-nowrap">
                 D2
             </a>
-            <a href="#day3" class="bg-slate-800 border border-slate-700 text-slate-200 px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-blue-600 hover:text-white hover:border-blue-500 transition-all active:scale-95">
+            <a href="#day3" class="flex-shrink-0 bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-blue-600 hover:text-white transition-all whitespace-nowrap">
                 D3
             </a>
-            <!-- 新增 D4~6 按鈕 -->
-            <a href="#day4-6" class="bg-slate-800 border border-slate-700 text-slate-200 px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-blue-600 hover:text-white hover:border-blue-500 transition-all active:scale-95">
-                D4~6
+            <a href="#day4-6" class="flex-shrink-0 bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-blue-600 hover:text-white transition-all whitespace-nowrap">
+                D4-6
             </a>
-            <a href="#transport" class="bg-blue-700 border border-blue-600 text-white px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-blue-600 hover:border-blue-500 transition-all active:scale-95">
-                <i class="fas fa-train mr-1.5"></i>交通
+            <a href="#transport" class="flex-shrink-0 bg-blue-700 border border-blue-600 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-blue-600 transition-all whitespace-nowrap">
+                <i class="fas fa-train mr-1"></i>交通
             </a>
-            <a href="#checklist" class="bg-emerald-700 border border-emerald-600 text-white px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-emerald-600 hover:border-emerald-500 transition-all active:scale-95">
-                <i class="fas fa-check-square mr-1.5"></i>檢查
+            <a href="#checklist" class="flex-shrink-0 bg-emerald-700 border border-emerald-600 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-emerald-600 transition-all whitespace-nowrap">
+                <i class="fas fa-check-square mr-1"></i>檢查
             </a>
-            <a href="#shopping" class="bg-pink-600 border border-pink-500 text-white px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-sm hover:bg-pink-500 hover:border-pink-400 transition-all active:scale-95">
-                <i class="fas fa-shopping-bag mr-1.5"></i>購物
+            <a href="#shopping" class="flex-shrink-0 bg-pink-600 border border-pink-500 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-pink-500 transition-all whitespace-nowrap">
+                <i class="fas fa-shopping-bag mr-1"></i>購物
             </a>
         </div>
     </header>
@@ -676,36 +684,266 @@
             </div>
         </section>
 
-        <!-- D4-D6 行程 -->
+        <!-- D4-D6 行程 (已更新為地區版面) -->
         <section id="day4-6" class="day-section">
-            <div class="flex items-center mb-8">
+            <div class="flex items-center mb-6">
                 <div class="bg-blue-600 text-white w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-xl mr-4 shadow-lg shadow-blue-100">D4-6</div>
-                <h2 class="text-3xl font-bold text-slate-800">D4~D6 東京市區</h2>
+                <h2 class="text-3xl font-bold text-slate-800">東京市區巡禮</h2>
+            </div>
+
+            <!-- 地區快捷按鈕 (Scrollable) -->
+            <div class="flex overflow-x-auto gap-3 pb-4 no-scrollbar mb-6 pl-12 border-l-2 border-slate-200 ml-6">
+                <a href="#area-ginza" class="flex-shrink-0 bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-full font-bold shadow-sm hover:bg-slate-800 hover:text-white transition-all flex items-center">
+                    <span class="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>銀座 Ginza
+                </a>
+                <a href="#area-tokyo" class="flex-shrink-0 bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-full font-bold shadow-sm hover:bg-slate-800 hover:text-white transition-all flex items-center">
+                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>東京車站 Tokyo St.
+                </a>
+                <a href="#area-shinjuku" class="flex-shrink-0 bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-full font-bold shadow-sm hover:bg-slate-800 hover:text-white transition-all flex items-center">
+                    <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>新宿 Shinjuku
+                </a>
+                <a href="#area-harajuku" class="flex-shrink-0 bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-full font-bold shadow-sm hover:bg-slate-800 hover:text-white transition-all flex items-center">
+                    <span class="w-2 h-2 bg-pink-400 rounded-full mr-2"></span>原宿 Harajuku
+                </a>
+                <a href="#area-shibuya" class="flex-shrink-0 bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-full font-bold shadow-sm hover:bg-slate-800 hover:text-white transition-all flex items-center">
+                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>澀谷 Shibuya
+                </a>
+                <a href="#area-akihabara" class="flex-shrink-0 bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-full font-bold shadow-sm hover:bg-slate-800 hover:text-white transition-all flex items-center">
+                    <span class="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>秋葉原 Akihabara
+                </a>
+                <a href="#area-skytree" class="flex-shrink-0 bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-full font-bold shadow-sm hover:bg-slate-800 hover:text-white transition-all flex items-center">
+                    <span class="w-2 h-2 bg-cyan-500 rounded-full mr-2"></span>晴空塔 Skytree
+                </a>
             </div>
             
-            <div class="relative pl-12 border-l-2 border-slate-200 ml-6 space-y-10">
+            <div class="relative pl-12 border-l-2 border-slate-200 ml-6 space-y-12">
                 
-                <!-- 美食餐廳 -->
-                <div class="relative">
-                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-orange-500 rounded-full z-10"></div>
-                    <h4 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
-                        <i class="fas fa-utensils text-orange-500 mr-3"></i>美食餐廳
-                    </h4>
-                    <!-- Content placeholder -->
-                    <div class="bg-orange-50 p-6 rounded-2xl border border-orange-100">
-                        <p class="text-slate-500 text-sm text-center italic">待補：東京市區餐廳清單</p>
+                <!-- 1. 銀座區域卡片 -->
+                <div id="area-ginza" class="relative scroll-mt-32">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-purple-500 rounded-full z-10"></div>
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                        <div class="bg-purple-50 p-4 border-b border-purple-100 flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-purple-900">📍 1. 銀座 Ginza</h3>
+                            <span class="text-xs bg-white text-purple-600 px-2 py-1 rounded border border-purple-200">購物一級戰區</span>
+                        </div>
+                        <div class="p-5 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- 美食 -->
+                            <div class="bg-purple-50/50 rounded-xl p-4 border border-purple-100">
+                                <h4 class="font-bold text-purple-800 mb-3 flex items-center">
+                                    <i class="fas fa-utensils mr-2"></i>美食餐廳
+                                </h4>
+                                <ul class="space-y-2 text-sm text-slate-700">
+                                    <li class="flex items-start">
+                                        <span class="bg-purple-200 text-purple-800 text-[10px] px-1.5 rounded mr-2 mt-0.5">拉麵</span>
+                                        <a href="https://maps.app.goo.gl/ginza-kagari" target="_blank" class="hover:underline"><strong>銀座 篝 (Kagari)</strong> - 雞白湯拉麵名店</a>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="bg-purple-200 text-purple-800 text-[10px] px-1.5 rounded mr-2 mt-0.5">豬排</span>
+                                        <span><strong>銀座梅林</strong> - 老字號炸豬排</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="bg-purple-200 text-purple-800 text-[10px] px-1.5 rounded mr-2 mt-0.5">甜點</span>
+                                        <span>Manneken Waffle (鬆餅)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- 購物 -->
+                            <div class="bg-purple-50/50 rounded-xl p-4 border border-purple-100">
+                                <h4 class="font-bold text-purple-800 mb-3 flex items-center">
+                                    <i class="fas fa-shopping-bag mr-2"></i>商店 Shopping
+                                </h4>
+                                <ul class="space-y-2 text-sm text-slate-700">
+                                    <li><strong>GINZA SIX</strong> - 蔦屋書店、精品</li>
+                                    <li><strong>Uniqlo 銀座旗艦店</strong> (12層樓)</li>
+                                    <li><strong>伊東屋 (Itoya)</strong> - 文具控必逛</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 商店Shopping -->
-                <div class="relative">
-                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-pink-500 rounded-full z-10"></div>
-                    <h4 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
-                        <i class="fas fa-shopping-bag text-pink-500 mr-3"></i>商店 Shopping
-                    </h4>
-                    <!-- Content placeholder -->
-                    <div class="bg-pink-50 p-6 rounded-2xl border border-pink-100">
-                        <p class="text-slate-500 text-sm text-center italic">待補：購物清單與地點</p>
+                <!-- 2. 東京車站區域卡片 -->
+                <div id="area-tokyo" class="relative scroll-mt-32">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-blue-500 rounded-full z-10"></div>
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                        <div class="bg-blue-50 p-4 border-b border-blue-100 flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-blue-900">📍 2. 東京車站 Tokyo St.</h3>
+                            <span class="text-xs bg-white text-blue-600 px-2 py-1 rounded border border-blue-200">伴手禮大本營</span>
+                        </div>
+                        <div class="p-5 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- 美食 -->
+                            <div class="bg-blue-50/50 rounded-xl p-4 border border-blue-100">
+                                <h4 class="font-bold text-blue-800 mb-3 flex items-center"><i class="fas fa-utensils mr-2"></i>美食餐廳</h4>
+                                <ul class="space-y-2 text-sm text-slate-700">
+                                    <li><strong>東京拉麵街</strong> (六厘舍沾麵、斑鳩)</li>
+                                    <li><strong>根室花丸</strong> (KITTE大樓) - 迴轉壽司</li>
+                                </ul>
+                            </div>
+                            <!-- 購物 -->
+                            <div class="bg-blue-50/50 rounded-xl p-4 border border-blue-100">
+                                <h4 class="font-bold text-blue-800 mb-3 flex items-center"><i class="fas fa-shopping-bag mr-2"></i>商店 Shopping</h4>
+                                <ul class="space-y-2 text-sm text-slate-700">
+                                    <li><strong>東京一番街</strong> (角色街/拉麵街)</li>
+                                    <li><strong>大丸百貨</strong> (1F/B1 伴手禮)</li>
+                                    <li><strong>New York Perfect Cheese</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. 新宿區域卡片 -->
+                <div id="area-shinjuku" class="relative scroll-mt-32">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-indigo-500 rounded-full z-10"></div>
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                        <div class="bg-indigo-50 p-4 border-b border-indigo-100 flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-indigo-900">📍 3. 新宿 Shinjuku</h3>
+                            <span class="text-xs bg-white text-indigo-600 px-2 py-1 rounded border border-indigo-200">繁華不夜城</span>
+                        </div>
+                        <div class="p-5 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- 美食 -->
+                            <div class="bg-indigo-50/50 rounded-xl p-4 border border-indigo-100">
+                                <h4 class="font-bold text-indigo-800 mb-3 flex items-center"><i class="fas fa-utensils mr-2"></i>美食餐廳</h4>
+                                <ul class="space-y-2 text-sm text-slate-700">
+                                    <li><strong>敘敘苑 游玄亭</strong> - 高級燒肉</li>
+                                    <li><strong>Afuri 拉麵</strong> (Lumine) - 柚子鹽拉麵</li>
+                                    <li><strong>Harbs</strong> (Lumine EST) - 水果千層蛋糕</li>
+                                </ul>
+                            </div>
+                            <!-- 購物 -->
+                            <div class="bg-indigo-50/50 rounded-xl p-4 border border-indigo-100">
+                                <h4 class="font-bold text-indigo-800 mb-3 flex items-center"><i class="fas fa-shopping-bag mr-2"></i>商店 Shopping</h4>
+                                <ul class="space-y-2 text-sm text-slate-700">
+                                    <li><strong>Lumine EST / 1 / 2</strong> - 女裝天堂</li>
+                                    <li><strong>伊勢丹百貨</strong> (Isetan) - 頂級百貨</li>
+                                    <li><strong>Disney Flagship Tokyo</strong> - 旗艦店</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. 原宿區域卡片 -->
+                <div id="area-harajuku" class="relative scroll-mt-32">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-pink-400 rounded-full z-10"></div>
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                        <div class="bg-pink-50 p-4 border-b border-pink-100 flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-pink-900">📍 4. 原宿 Harajuku</h3>
+                            <span class="text-xs bg-white text-pink-600 px-2 py-1 rounded border border-pink-200">年輕潮流</span>
+                        </div>
+                        <div class="p-5 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- 美食 -->
+                            <div class="bg-pink-50/50 rounded-xl p-4 border border-pink-100">
+                                <h4 class="font-bold text-pink-800 mb-3 flex items-center"><i class="fas fa-utensils mr-2"></i>美食餐廳</h4>
+                                <ul class="space-y-2 text-sm text-slate-700">
+                                    <li><strong>Marion Crepes</strong> - 竹下通可麗餅</li>
+                                    <li><strong>Bills</strong> (表參道) - 鬆餅早午餐</li>
+                                    <li><strong>Afuri</strong> (原宿店)</li>
+                                </ul>
+                            </div>
+                            <!-- 購物 -->
+                            <div class="bg-pink-50/50 rounded-xl p-4 border border-pink-100">
+                                <h4 class="font-bold text-pink-800 mb-3 flex items-center"><i class="fas fa-shopping-bag mr-2"></i>商店 Shopping</h4>
+                                <ul class="space-y-2 text-sm text-slate-700">
+                                    <li><strong>竹下通</strong> - 雜貨、拍貼機</li>
+                                    <li><strong>Laforet</strong> - 潮流服飾</li>
+                                    <li><strong>Kiddy Land</strong> - 玩具總動員</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. 澀谷區域卡片 -->
+                <div id="area-shibuya" class="relative scroll-mt-32">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-green-500 rounded-full z-10"></div>
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                        <div class="bg-green-50 p-4 border-b border-green-100 flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-green-900">📍 5. 澀谷 Shibuya</h3>
+                            <span class="text-xs bg-white text-green-600 px-2 py-1 rounded border border-green-200">流行文化中心</span>
+                        </div>
+                        <div class="p-5 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- 美食 -->
+                            <div class="bg-green-50/50 rounded-xl p-4 border border-green-100">
+                                <h4 class="font-bold text-green-800 mb-3 flex items-center"><i class="fas fa-utensils mr-2"></i>美食餐廳</h4>
+                                <ul class="space-y-2 text-sm text-slate-700">
+                                    <li><strong>利久牛舌</strong> (Hikarie)</li>
+                                    <li><strong>挽肉と米</strong> (需預約) - 漢堡排</li>
+                                    <li><strong>美登利壽司</strong> (Mark City)</li>
+                                </ul>
+                            </div>
+                            <!-- 購物 -->
+                            <div class="bg-green-50/50 rounded-xl p-4 border border-green-100">
+                                <h4 class="font-bold text-green-800 mb-3 flex items-center"><i class="fas fa-shopping-bag mr-2"></i>商店 Shopping</h4>
+                                <ul class="space-y-2 text-sm text-slate-700">
+                                    <li><strong>SHIBUYA SKY</strong> (Scramble Square)</li>
+                                    <li><strong>Parco</strong> (任天堂/寶可夢中心)</li>
+                                    <li><strong>Mega Donki</strong> - 唐吉訶德旗艦店</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. 秋葉原區域卡片 -->
+                <div id="area-akihabara" class="relative scroll-mt-32">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-orange-500 rounded-full z-10"></div>
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                        <div class="bg-orange-50 p-4 border-b border-orange-100 flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-orange-900">📍 6. 秋葉原 Akihabara</h3>
+                            <span class="text-xs bg-white text-orange-600 px-2 py-1 rounded border border-orange-200">動漫電器聖地</span>
+                        </div>
+                        <div class="p-5 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- 美食 -->
+                            <div class="bg-orange-50/50 rounded-xl p-4 border border-orange-100">
+                                <h4 class="font-bold text-orange-800 mb-3 flex items-center"><i class="fas fa-utensils mr-2"></i>美食餐廳</h4>
+                                <ul class="space-y-2 text-sm text-slate-700">
+                                    <li><strong>牛かつ 壱弐参</strong> - 炸牛排排隊名店</li>
+                                    <li><strong>Maidreamin</strong> - 女僕咖啡廳體驗</li>
+                                    <li><strong>丸五豬排</strong> - 百名店</li>
+                                </ul>
+                            </div>
+                            <!-- 購物 -->
+                            <div class="bg-orange-50/50 rounded-xl p-4 border border-orange-100">
+                                <h4 class="font-bold text-orange-800 mb-3 flex items-center"><i class="fas fa-shopping-bag mr-2"></i>商店 Shopping</h4>
+                                <ul class="space-y-2 text-sm text-slate-700">
+                                    <li><strong>Yodobashi Camera</strong> - 大型電器行</li>
+                                    <li><strong>Radio 會館</strong> - 模型/扭蛋/卡牌</li>
+                                    <li><strong>Mandarake</strong> - 二手動漫周邊</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. 晴空塔區域卡片 -->
+                <div id="area-skytree" class="relative scroll-mt-32">
+                    <div class="absolute -left-[33px] top-1 w-5 h-5 bg-white border-4 border-cyan-500 rounded-full z-10"></div>
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                        <div class="bg-cyan-50 p-4 border-b border-cyan-100 flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-cyan-900">📍 7. 晴空塔 Skytree</h3>
+                            <span class="text-xs bg-white text-cyan-600 px-2 py-1 rounded border border-cyan-200">東京新地標</span>
+                        </div>
+                        <div class="p-5 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- 美食 -->
+                            <div class="bg-cyan-50/50 rounded-xl p-4 border border-cyan-100">
+                                <h4 class="font-bold text-cyan-800 mb-3 flex items-center"><i class="fas fa-utensils mr-2"></i>美食餐廳</h4>
+                                <ul class="space-y-2 text-sm text-slate-700">
+                                    <li><strong>叙叙苑</strong> (30F) - 高空景觀燒肉</li>
+                                    <li><strong>六厘舍</strong> (Solamachi 6F) - 沾麵</li>
+                                    <li><strong>Qu'il Fait Bon</strong> - 水果塔</li>
+                                </ul>
+                            </div>
+                            <!-- 購物 -->
+                            <div class="bg-cyan-50/50 rounded-xl p-4 border border-cyan-100">
+                                <h4 class="font-bold text-cyan-800 mb-3 flex items-center"><i class="fas fa-shopping-bag mr-2"></i>商店 Shopping</h4>
+                                <ul class="space-y-2 text-sm text-slate-700">
+                                    <li><strong>Pokemon Center Skytree Town</strong></li>
+                                    <li><strong>Tokyo Solamachi</strong> - 超大購物中心</li>
+                                    <li><strong>どんぐり共和国</strong> - 吉卜力周邊</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
