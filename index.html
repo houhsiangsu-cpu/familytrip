@@ -171,21 +171,21 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                     <!-- 航班資訊 -->
                     <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100">
-                        <h3 class="text-xs font-bold text-slate-400 mb-3 uppercase tracking-widest">✈️ 航班資訊 (點擊查看)</h3>
+                        <h3 class="text-xs font-bold text-slate-400 mb-3 uppercase tracking-widest">✈️ 航班資訊 (開啟 App)</h3>
                         
                         <!-- 去程連結 -->
-                        <button onclick="openModal('outbound')" class="w-full text-left group mb-2">
+                        <a href="evaair://" class="block w-full text-left group mb-2">
                             <p class="text-base font-bold text-blue-600 group-hover:text-blue-800 underline decoration-dashed underline-offset-4 transition">
-                                去程 BR192 07:15 (TPE)
+                                去程 BR192 07:15 (TPE) <i class="fas fa-external-link-alt ml-1 text-xs"></i>
                             </p>
-                        </button>
+                        </a>
 
                         <!-- 回程連結 -->
-                        <button onclick="openModal('inbound')" class="w-full text-left group">
+                        <a href="evaair://" class="block w-full text-left group">
                             <p class="text-base font-bold text-blue-600 group-hover:text-blue-800 underline decoration-dashed underline-offset-4 transition">
-                                回程 BR191 12:15 (JPT)
+                                回程 BR191 12:15 (JPT) <i class="fas fa-external-link-alt ml-1 text-xs"></i>
                             </p>
-                        </button>
+                        </a>
                     </div>
 
                     <!-- JR 票券 -->
