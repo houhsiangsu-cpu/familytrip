@@ -181,33 +181,54 @@
                 <h2 class="text-2xl font-bold mb-6 flex items-center text-slate-800">
                     <i class="fas fa-bolt text-yellow-500 mr-3"></i>快速清單
                 </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <!-- 航班資訊 -->
-                    <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100">
-                        <h3 class="text-xs font-bold text-slate-400 mb-3 uppercase tracking-widest">✈️ 航班資訊 (點擊查看)</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <!-- 航班資訊 (精簡設計) -->
+                    <div class="p-4 bg-gradient-to-br from-blue-50 to-white rounded-2xl border border-blue-100 shadow-sm hover:shadow-md transition group/card flex flex-col h-full">
+                        <a href="evaair://" class="flex items-center justify-between mb-3 text-blue-800 font-bold hover:text-blue-600">
+                            <span class="flex items-center text-sm"><i class="fas fa-plane-departure mr-2"></i>航班資訊 (點擊App)</span>
+                            <i class="fas fa-external-link-alt text-xs opacity-50 group-hover/card:opacity-100 transition"></i>
+                        </a>
                         
-                        <!-- 去程連結 -->
-                        <button onclick="openModal('outbound')" class="w-full text-left group mb-2">
-                            <p class="text-base font-bold text-blue-600 group-hover:text-blue-800 underline decoration-dashed underline-offset-4 transition">
-                                去程 BR192 07:15 (TPE)
-                            </p>
-                        </button>
-
-                        <!-- 回程連結 -->
-                        <button onclick="openModal('inbound')" class="w-full text-left group">
-                            <p class="text-base font-bold text-blue-600 group-hover:text-blue-800 underline decoration-dashed underline-offset-4 transition">
-                                回程 BR191 12:15 (JPT)
-                            </p>
-                        </button>
+                        <div class="space-y-2 flex-grow">
+                            <button onclick="openModal('outbound')" class="w-full text-left bg-white p-2.5 rounded-xl border border-blue-100 hover:border-blue-300 transition flex items-center justify-between group h-[3.25rem]">
+                                <div>
+                                    <span class="text-[10px] bg-blue-100 text-blue-600 px-1.5 py-0.5 rounded font-bold mr-2">去</span>
+                                    <span class="text-sm font-bold text-slate-700 group-hover:text-blue-600 transition">BR192 07:15</span>
+                                </div>
+                                <i class="fas fa-image text-slate-300 group-hover:text-blue-400 transition text-xs"></i>
+                            </button>
+                            <button onclick="openModal('inbound')" class="w-full text-left bg-white p-2.5 rounded-xl border border-blue-100 hover:border-blue-300 transition flex items-center justify-between group h-[3.25rem]">
+                                <div>
+                                    <span class="text-[10px] bg-blue-100 text-blue-600 px-1.5 py-0.5 rounded font-bold mr-2">回</span>
+                                    <span class="text-sm font-bold text-slate-700 group-hover:text-blue-600 transition">BR191 12:15</span>
+                                </div>
+                                <i class="fas fa-image text-slate-300 group-hover:text-blue-400 transition text-xs"></i>
+                            </button>
+                        </div>
                     </div>
 
-                    <!-- JR 票券 -->
-                    <div class="p-5 bg-orange-50 rounded-2xl border border-orange-100">
-                        <h3 class="text-xs font-bold text-orange-400 mb-3 uppercase tracking-widest">🎫 JR 重要預約</h3>
-                        <p class="text-base font-bold text-orange-800">Pickup Code: 33492329600521248</p>
-                        <div class="mt-2">
-                            <a href="https://drive.google.com/file/d/10tinvT-TAIIvS_5avJURp9RsKzcq6bra/view?usp=drive_link" target="_blank" class="bg-orange-600 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-sm inline-block hover:bg-orange-700 transition">
-                                <i class="fas fa-qrcode mr-1"></i>查看 JR Ticket QR 附件
+                    <!-- JR / Bus 預約 (精簡設計) -->
+                    <div class="p-4 bg-gradient-to-br from-orange-50 to-white rounded-2xl border border-orange-100 shadow-sm hover:shadow-md transition flex flex-col h-full">
+                        <h3 class="text-sm font-bold text-orange-800 mb-3 flex items-center"><i class="fas fa-ticket-alt mr-2"></i>JR / Bus 預約</h3>
+                        
+                        <div class="space-y-2 flex-grow">
+                            <div class="bg-white p-2.5 rounded-xl border border-orange-100 h-[3.25rem] flex flex-col justify-center">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] text-orange-400 font-bold uppercase">JR Pickup Code</span>
+                                    <a href="https://drive.google.com/file/d/10tinvT-TAIIvS_5avJURp9RsKzcq6bra/view?usp=drive_link" target="_blank" class="text-[10px] text-orange-600 font-bold bg-orange-50 px-2 py-0.5 rounded-full hover:bg-orange-100 transition">
+                                        <i class="fas fa-qrcode mr-1"></i>QR
+                                    </a>
+                                </div>
+                                <p class="text-sm font-bold text-orange-700 tracking-wider font-mono">33492329600521248</p>
+                            </div>
+                            
+                            <a href="https://webservice.limousinebus.co.jp/web/en/ReservationComplete.aspx" target="_blank" class="w-full flex items-center justify-between p-2.5 bg-white text-orange-700 text-xs font-bold rounded-xl border border-orange-100 hover:bg-orange-50 hover:border-orange-300 transition h-[3.25rem] group">
+                                <div class="flex items-center">
+                                    <span class="w-6 h-6 rounded-full bg-orange-100 text-orange-500 flex items-center justify-center mr-2 group-hover:bg-orange-200 transition"><i class="fas fa-bus"></i></span>
+                                    <span>新浦安 到 羽田機場</span>
+                                </div>
+                                <i class="fas fa-chevron-right text-[10px] text-orange-300 group-hover:text-orange-500 transition"></i>
                             </a>
                         </div>
                     </div>
