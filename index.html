@@ -141,41 +141,49 @@
 </head>
 <body class="text-slate-800">
 
-    <!-- Header -->
-    <header class="bg-slate-900 text-white py-8 px-4 text-center sticky top-0 z-40 shadow-xl transition-all duration-300">
-        <h1 class="text-2xl md:text-3xl font-bold mb-1 tracking-tight">2026 KiKiLaLa Tokyo</h1>
-        <p class="text-slate-400 text-xs mb-4">1/21 - 1/28 | 越後湯澤 ・ 東京 ・ 迪士尼</p>
-        
-        <!-- 導覽按鈕區 (Scrollable) -->
-        <div class="flex flex-nowrap justify-start md:justify-center gap-2 max-w-4xl mx-auto overflow-x-auto no-scrollbar pb-2 px-2 snap-x">
-            <a href="#cheat-sheet" class="flex-shrink-0 snap-start bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-blue-600 hover:text-white transition-all whitespace-nowrap">
-                <i class="fas fa-bolt text-yellow-500 mr-1"></i>清單
-            </a>
-            <a href="#day1" class="flex-shrink-0 snap-start bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-blue-600 hover:text-white transition-all whitespace-nowrap">
-                D1
-            </a>
-            <a href="#day2" class="flex-shrink-0 snap-start bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-blue-600 hover:text-white transition-all whitespace-nowrap">
-                D2
-            </a>
-            <a href="#day3" class="flex-shrink-0 snap-start bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-blue-600 hover:text-white transition-all whitespace-nowrap">
-                D3
-            </a>
-            <a href="#day4-6" class="flex-shrink-0 snap-start bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-blue-600 hover:text-white transition-all whitespace-nowrap">
-                D4-6
-            </a>
-            <!-- 新增 D7 按鈕 -->
-            <a href="#day7" class="flex-shrink-0 snap-start bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-blue-600 hover:text-white transition-all whitespace-nowrap">
-                D7
-            </a>
-            <a href="#transport" class="flex-shrink-0 snap-start bg-blue-700 border border-blue-600 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-blue-600 transition-all whitespace-nowrap">
-                <i class="fas fa-train mr-1"></i>交通
-            </a>
-            <a href="#checklist" class="flex-shrink-0 snap-start bg-emerald-700 border border-emerald-600 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-emerald-600 transition-all whitespace-nowrap">
-                <i class="fas fa-check-square mr-1"></i>檢查
-            </a>
-            <a href="#shopping" class="flex-shrink-0 snap-start bg-pink-600 border border-pink-500 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-pink-500 transition-all whitespace-nowrap">
-                <i class="fas fa-shopping-bag mr-1"></i>購物
-            </a>
+    <!-- Header (Updated with Ski Background) -->
+    <header class="relative bg-slate-900 text-white py-8 px-4 text-center sticky top-0 z-40 shadow-xl transition-all duration-300 overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+             <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Ski Resort" class="w-full h-full object-cover opacity-60">
+             <div class="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-900/90"></div>
+        </div>
+
+        <div class="relative z-10">
+            <h1 class="text-2xl md:text-3xl font-bold mb-1 tracking-tight drop-shadow-md">2026 KiKiLaLa Tokyo</h1>
+            <p class="text-slate-200 text-xs mb-4 font-medium tracking-wide drop-shadow-sm">1/21 - 1/28 | 越後湯澤 ・ 東京 ・ 迪士尼</p>
+            
+            <!-- 導覽按鈕區 (Scrollable) -->
+            <div class="flex flex-nowrap justify-start md:justify-center gap-2 max-w-4xl mx-auto overflow-x-auto no-scrollbar pb-2 px-2 snap-x">
+                <a href="#cheat-sheet" class="flex-shrink-0 snap-start bg-white/20 backdrop-blur-sm border border-white/30 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-white/40 transition-all whitespace-nowrap">
+                    <i class="fas fa-bolt text-yellow-300 mr-1"></i>清單
+                </a>
+                <a href="#day1" class="flex-shrink-0 snap-start bg-white/20 backdrop-blur-sm border border-white/30 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-white/40 transition-all whitespace-nowrap">
+                    D1
+                </a>
+                <a href="#day2" class="flex-shrink-0 snap-start bg-white/20 backdrop-blur-sm border border-white/30 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-white/40 transition-all whitespace-nowrap">
+                    D2
+                </a>
+                <a href="#day3" class="flex-shrink-0 snap-start bg-white/20 backdrop-blur-sm border border-white/30 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-white/40 transition-all whitespace-nowrap">
+                    D3
+                </a>
+                <a href="#day4-6" class="flex-shrink-0 snap-start bg-white/20 backdrop-blur-sm border border-white/30 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-white/40 transition-all whitespace-nowrap">
+                    D4-6
+                </a>
+                <!-- 新增 D7 按鈕 -->
+                <a href="#day7" class="flex-shrink-0 snap-start bg-white/20 backdrop-blur-sm border border-white/30 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-white/40 transition-all whitespace-nowrap">
+                    D7
+                </a>
+                <a href="#transport" class="flex-shrink-0 snap-start bg-blue-600/80 backdrop-blur-sm border border-blue-400/50 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-blue-600 transition-all whitespace-nowrap">
+                    <i class="fas fa-train mr-1"></i>交通
+                </a>
+                <a href="#checklist" class="flex-shrink-0 snap-start bg-emerald-600/80 backdrop-blur-sm border border-emerald-400/50 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-emerald-600 transition-all whitespace-nowrap">
+                    <i class="fas fa-check-square mr-1"></i>檢查
+                </a>
+                <a href="#shopping" class="flex-shrink-0 snap-start bg-pink-600/80 backdrop-blur-sm border border-pink-400/50 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-sm hover:bg-pink-500 transition-all whitespace-nowrap">
+                    <i class="fas fa-shopping-bag mr-1"></i>購物
+                </a>
+            </div>
         </div>
     </header>
 
@@ -871,10 +879,6 @@
                                     </a>
                                 </div>
                                 <ul class="space-y-2 text-sm text-slate-700">
-                                    <li class="flex items-start">
-                                        <span class="bg-blue-200 text-blue-800 text-[10px] px-1.5 rounded mr-2 mt-0.5 whitespace-nowrap flex-shrink-0">燒肉</span>
-                                        <a href="https://www.google.com/maps/search/米沢牛上杉+東京車站" target="_blank" class="hover:underline"><strong>米沢牛 上杉 (Yonezawa Gyu Uesugi)</strong> - 頂級黑毛和牛</a>
-                                    </li>
                                     <li class="flex items-start">
                                         <span class="bg-blue-200 text-blue-800 text-[10px] px-1.5 rounded mr-2 mt-0.5 whitespace-nowrap flex-shrink-0">拉麵</span>
                                         <span><strong>東京拉麵街</strong> (六厘舍沾麵、斑鳩)</span>
