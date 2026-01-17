@@ -191,13 +191,13 @@
                 <!-- 第一排：航班與住宿並排 -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <!-- 航班資訊 (精簡設計) -->
-                    <div class="p-4 bg-gradient-to-br from-blue-50 to-white rounded-2xl border border-blue-100 shadow-sm hover:shadow-md transition group/card">
+                    <div class="p-4 bg-gradient-to-br from-blue-50 to-white rounded-2xl border border-blue-100 shadow-sm hover:shadow-md transition group/card flex flex-col h-full">
                         <a href="evaair://" class="flex items-center justify-between mb-3 text-blue-800 font-bold hover:text-blue-600">
                             <span class="flex items-center text-sm"><i class="fas fa-plane-departure mr-2"></i>航班資訊 (點擊App)</span>
                             <i class="fas fa-external-link-alt text-xs opacity-50 group-hover/card:opacity-100 transition"></i>
                         </a>
                         
-                        <div class="space-y-2">
+                        <div class="space-y-2 flex-grow">
                             <button onclick="openModal('outbound')" class="w-full text-left bg-white p-2.5 rounded-xl border border-blue-100 hover:border-blue-300 transition flex items-center justify-between group h-[3rem]">
                                 <div>
                                     <span class="text-[10px] bg-blue-100 text-blue-600 px-1.5 py-0.5 rounded font-bold mr-2">去</span>
@@ -833,6 +833,7 @@
                                         <a href="https://www.google.com/maps/search/Muji+Ginza" target="_blank" class="text-[10px] bg-red-800 text-white px-1.5 py-0.5 rounded hover:opacity-80">Muji <i class="fas fa-map-marker-alt ml-0.5"></i></a>
                                         <a href="https://www.google.com/maps/search/Loft+Ginza" target="_blank" class="text-[10px] bg-yellow-500 text-white px-1.5 py-0.5 rounded hover:opacity-80">Loft <i class="fas fa-map-marker-alt ml-0.5"></i></a>
                                         <a href="https://www.google.com/maps/search/Bic+Camera+Ginza" target="_blank" class="text-[10px] bg-blue-600 text-white px-1.5 py-0.5 rounded hover:opacity-80">Bic <i class="fas fa-camera ml-0.5"></i></a>
+                                        <a href="https://francfranc.com/pages/stores?region=%E6%9D%B1%E4%BA%AC" target="_blank" class="text-[10px] bg-pink-400 text-white px-1.5 py-0.5 rounded hover:opacity-80">Francfranc <i class="fas fa-search ml-0.5"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -881,6 +882,7 @@
                                         <a href="https://www.google.com/maps/search/Uniqlo+Tokyo+Station" target="_blank" class="text-[10px] bg-red-600 text-white px-1.5 py-0.5 rounded hover:opacity-80">UQ <i class="fas fa-map-marker-alt ml-0.5"></i></a>
                                         <a href="https://www.google.com/maps/search/Muji+Tokyo+Station" target="_blank" class="text-[10px] bg-red-800 text-white px-1.5 py-0.5 rounded hover:opacity-80">Muji <i class="fas fa-map-marker-alt ml-0.5"></i></a>
                                         <a href="https://www.google.com/maps/search/Loft+Tokyo+Station" target="_blank" class="text-[10px] bg-yellow-500 text-white px-1.5 py-0.5 rounded hover:opacity-80">Loft <i class="fas fa-map-marker-alt ml-0.5"></i></a>
+                                        <a href="https://francfranc.com/pages/stores?region=%E6%9D%B1%E4%BA%AC" target="_blank" class="text-[10px] bg-pink-400 text-white px-1.5 py-0.5 rounded hover:opacity-80">Francfranc <i class="fas fa-search ml-0.5"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -934,6 +936,8 @@
                                         <a href="https://maps.app.goo.gl/DuQjP93yVEsKAiEu5" target="_blank" class="text-[10px] bg-yellow-500 text-white px-1.5 py-0.5 rounded hover:opacity-80">Loft <i class="fas fa-map-marker-alt ml-0.5"></i></a>
                                         <a href="https://www.google.com/maps/search/Bic+Camera+Shinjuku" target="_blank" class="text-[10px] bg-blue-600 text-white px-1.5 py-0.5 rounded hover:opacity-80">Bic <i class="fas fa-camera ml-0.5"></i></a>
                                         <a href="https://www.google.com/maps/search/Yodobashi+Camera+Shinjuku" target="_blank" class="text-[10px] bg-gray-800 text-white px-1.5 py-0.5 rounded hover:opacity-80">Yodobashi <i class="fas fa-camera ml-0.5"></i></a>
+                                        <a href="https://www.google.com/maps/search/Yamada+Denki+Shinjuku" target="_blank" class="text-[10px] bg-yellow-600 text-white px-1.5 py-0.5 rounded hover:opacity-80">Yamada <i class="fas fa-bolt ml-0.5"></i></a>
+                                        <a href="https://francfranc.com/pages/stores?region=%E6%9D%B1%E4%BA%AC" target="_blank" class="text-[10px] bg-pink-400 text-white px-1.5 py-0.5 rounded hover:opacity-80">Francfranc <i class="fas fa-search ml-0.5"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -984,6 +988,7 @@
                                         <span class="text-xs font-bold text-slate-500">連鎖必逛:</span>
                                         <a href="https://www.google.com/maps/search/Uniqlo+Harajuku" target="_blank" class="text-[10px] bg-red-600 text-white px-1.5 py-0.5 rounded hover:opacity-80">UQ <i class="fas fa-map-marker-alt ml-0.5"></i></a>
                                         <a href="https://maps.app.goo.gl/UPtLasi31AYuwR617" target="_blank" class="text-[10px] bg-red-800 text-white px-1.5 py-0.5 rounded hover:opacity-80">Muji <i class="fas fa-map-marker-alt ml-0.5"></i></a>
+                                        <a href="https://francfranc.com/pages/stores?region=%E6%9D%B1%E4%BA%AC" target="_blank" class="text-[10px] bg-pink-400 text-white px-1.5 py-0.5 rounded hover:opacity-80">Francfranc <i class="fas fa-search ml-0.5"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -1037,6 +1042,7 @@
                                         <a href="https://www.google.com/maps/search/Loft+Shibuya" target="_blank" class="text-[10px] bg-yellow-500 text-white px-1.5 py-0.5 rounded hover:opacity-80">Loft <i class="fas fa-map-marker-alt ml-0.5"></i></a>
                                         <a href="https://www.google.com/maps/search/Bic+Camera+Shibuya" target="_blank" class="text-[10px] bg-blue-600 text-white px-1.5 py-0.5 rounded hover:opacity-80">Bic <i class="fas fa-camera ml-0.5"></i></a>
                                         <a href="https://www.google.com/maps/search/Yamada+Denki+Shibuya" target="_blank" class="text-[10px] bg-yellow-600 text-white px-1.5 py-0.5 rounded hover:opacity-80">Yamada <i class="fas fa-bolt ml-0.5"></i></a>
+                                        <a href="https://francfranc.com/pages/stores?region=%E6%9D%B1%E4%BA%AC" target="_blank" class="text-[10px] bg-pink-400 text-white px-1.5 py-0.5 rounded hover:opacity-80">Francfranc <i class="fas fa-search ml-0.5"></i></a>
                                     </li>
                                 </ul>
                             </div>
